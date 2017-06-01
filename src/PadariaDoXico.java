@@ -36,7 +36,7 @@ public class PadariaDoXico {
 				
 			case "2":
 				
-				// cadastro
+				// cadastros
 				
 				break;
 				
