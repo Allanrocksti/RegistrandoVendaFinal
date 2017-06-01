@@ -1,61 +1,90 @@
 import java.util.Scanner;
-public class PadariaDoXico {
 
+public class PadariaDoXico {
+	
 	private static Scanner scanner;
 
-	static String menu(){
+	public static void main(String[] args) {
 		
 		scanner = new Scanner(System.in);
+		boolean exitMenu = false;
+		String option = "0";
 		
-		System.out.println("                                      PADARIA DO XICO\n\n");
-		System.out.println("                                1 - INICIAR UMA VENDA");
-		System.out.println("                                2 - CADASTROS");
-		System.out.println("                                3 - SAIR\n");
-		System.out.print("                                > ");
-		
-		return scanner.nextLine();
-		
-	}
-	
-	public static void main(String[] args) {
-	
-		boolean exit = false;
-		String option;
-		
-		while(exit != true){
+		while(exitMenu != true){
 			
-			option = menu();
+			Telas.menuInicial();
+			//option = coletarOpcao;
+			option = scanner.nextLine();
 			
 			switch (option) {
 			
-			case "1":
-				
-				//INICIAR A VENDA
-				
-				break;
-				
-			case "2":
-				
-				// cadastros
-				
-				break;
-				
-			case "3":
-				
-				System.out.println("\n                                Obrigado por comprar \"pão\" na padaria do xico!");
-				exit = true;
-				
-				break;
-
-			default:
-				
-				System.out.println("\nOpção incorreta!");
-				System.out.println("Please, digite uma opção válida!");
-				
-				break;
+				case "1":
+					
+					//INICIAR A VENDA
+					
+					break;
+					
+				case "2":
+					
+					boolean exitCadastro = false;
+					
+					while(exitCadastro != true){
+						
+						Telas.menuCadastro();
+						//option = coletarOpcao;
+						option = scanner.nextLine();
+						
+						switch (option) {
+						
+							case "1":
+								
+								//PRODUTO
+								
+								break;
+								
+							case "2":
+								
+								//CLIENTE
+								
+								break;
+								
+							case "3":
+								
+								//VENDEDOR
+								
+								break;
+								
+							case "4":
+								
+								exitCadastro = true;
+								
+								break;
+		
+							default:
+								
+								Telas.msgError();
+								
+								break;	
+						}
+						
+					}
+					
+					break;
+					
+				case "3":
+					
+					System.out.println("\nObrigado por comprar \"pão\" na padaria do xico!");
+					exitMenu = true;
+					
+					break;
+	
+				default:
+					
+					Telas.msgError();
+					
+					break;
 				
 			}
-			
 			
 		}
 		
