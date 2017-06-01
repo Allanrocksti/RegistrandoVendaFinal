@@ -4,5 +4,6 @@ public class Produto
 	public String Descricao;
 	public float Valor;
 	public String Codigo;
-	public String QuantidadeDisponivel;
+	public int QuantidadeDisponivel;
+	public int QuantidadeDesejada;
 }

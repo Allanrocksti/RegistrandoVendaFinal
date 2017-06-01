@@ -1,10 +1,11 @@
-import java.util.HashMap;
+import java.util.ArrayList;
+import java.util.List;
 
 public class Compra
 {
 	Pessoa Vendendor = new Pessoa();
 	Pessoa Usuario = new Pessoa();
-	HashMap<String, Float> Carrinho = new HashMap<String, Float>();
-	Float ValorLiguido;
-	Float Desconto;
+	List<Produto> Carrinho = new ArrayList<Produto>();
+	float ValorLiquido;
+	float Desconto;
 }

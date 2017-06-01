@@ -1,6 +1,8 @@
+import ObjetosDeValor.Documento;
+import ObjetosDeValor.Nome;
+
 public class Pessoa
 {
-	public String PrimeiroNome;
-	public String UltimoNumero;
-	public String CPF;
+	public Nome Nome;
+	public Documento Documento;
 }
