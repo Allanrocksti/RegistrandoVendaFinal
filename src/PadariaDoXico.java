@@ -41,17 +41,18 @@ public class PadariaDoXico {
 				
 				break;
 				
-			
-				
 			case "3":
-				System.out.println("Obrigado por comprar \"pão\" na padaria do xico!");
+				
+				System.out.println("\n                                Obrigado por comprar \"pão\" na padaria do xico!");
 				exit = true;
+				
 				break;
 
 			default:
 				
-				System.out.println("Opção incorreta!");
+				System.out.println("\nOpção incorreta!");
 				System.out.println("Please, digite uma opção válida!");
+				
 				break;
 				
 			}
