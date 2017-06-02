@@ -1,6 +1,7 @@
 
 import java.util.Scanner;
 //OI LULUZINHO 13
+//OI SUA GORDA
 public class PadariaDoXico {
 	
 	private static Scanner scanner;
