@@ -7,4 +7,6 @@ public class Compra
 	HashMap<String, Float> Carrinho = new HashMap<String, Float>();
 	Float ValorLiguido;
 	Float Desconto;
+	
+	
 }
