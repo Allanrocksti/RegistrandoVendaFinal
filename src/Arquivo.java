@@ -17,13 +17,13 @@ import java.io.ObjectOutputStream;
  */
 public class Arquivo {
 
-	public static String salvarObjeto(Compra compra){
+	public static String salvarObjeto(Produto produto){
 		String msg = "";
-		String nome = compra.Usuario.PrimeiroNome.toString();
+		String nome = produto.getNome();
 		try {
 			FileOutputStream fos = new FileOutputStream(nome+".ser");
 			ObjectOutputStream oos = new ObjectOutputStream(fos);
-			oos.writeObject(compra);
+			oos.writeObject(produto);
 			
 			oos.close();
 			fos.close();

@@ -7,6 +7,7 @@ public class PadariaDoXico {
 
 	public static void main(String[] args) {
 		
+		Arquivo arquivo = new Arquivo();
 		Produto produto;
 		Extra extra = new Extra();
 		scanner = new Scanner(System.in);
@@ -56,6 +57,8 @@ public class PadariaDoXico {
 								String qtd_produto = scanner.nextLine();
 								
 								produto = new Produto(nome,descricao,valor,codigo,qtd_produto);
+								
+								arquivo.salvarObjeto(produto);
 								break;
 								
 							case "2":
