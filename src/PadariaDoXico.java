@@ -1,11 +1,14 @@
  
 import java.util.Scanner;
+
 public class PadariaDoXico {
 	
 	private static Scanner scanner;
 
 	public static void main(String[] args) {
 		
+		Produto produto;
+		Extra extra = new Extra();
 		scanner = new Scanner(System.in);
 		boolean exitMenu = false;
 		String option = "0";
@@ -40,7 +43,19 @@ public class PadariaDoXico {
 								
 
 								//PRODUTO
+								System.out.println("Nome do produto: ");
+								String nome = scanner.nextLine();
+								System.out.println("Descrição do produto: ");
+								String descricao = scanner.nextLine();
+								System.out.println("Valor do produto: ");
+								String dado = scanner.nextLine();
+								float valor = extra.verificarF(dado);
+								System.out.println("Codigo do produto: ");
+								String codigo = scanner.nextLine();
+								System.out.println("Quantidade do produto: ");
+								String qtd_produto = scanner.nextLine();
 								
+								produto = new Produto(nome,descricao,valor,codigo,qtd_produto);
 								break;
 								
 							case "2":
