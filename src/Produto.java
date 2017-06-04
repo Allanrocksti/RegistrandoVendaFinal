@@ -1,38 +1,48 @@
-public class Produto
-{
+public class Produto {
+
+	private String CodBarras;
 	private String Nome;
-	private float Valor;
-	private String Codigo;
-	
-	public Produto(String nome, float valor, String codigo) {
+	private float ValorVenda;
+	private float ValorCusto;
+
+	public Produto(String codBarras, String nome, float valorVenda, float valorCusto) {
 		super();
+		CodBarras = codBarras;
 		Nome = nome;
-		Valor = valor;
-		Codigo = codigo;
+		ValorVenda = valorVenda;
+		ValorCusto = valorCusto;
 	}
-	
-	public void imprimir(Produto produto){
-		System.out.println("Nome do produto: "+produto.getNome());
+
+	public String getCodBarras() {
+		return CodBarras;
 	}
-	
+
+	public void setCodBarras(String codBarras) {
+		CodBarras = codBarras;
+	}
+
 	public String getNome() {
 		return Nome;
 	}
+
 	public void setNome(String nome) {
 		Nome = nome;
 	}
-	public float getValor() {
-		return Valor;
+
+	public float getValorVenda() {
+		return ValorVenda;
 	}
-	public void setValor(float valor) {
-		Valor = valor;
+
+	public void setValorVenda(float valorVenda) {
+		ValorVenda = valorVenda;
 	}
-	public String getCodigo() {
-		return Codigo;
+
+	public float getValorCusto() {
+		return ValorCusto;
 	}
-	public void setCodigo(String codigo) {
-		Codigo = codigo;
+
+	public void setValorCusto(float valorCusto) {
+		ValorCusto = valorCusto;
 	}
-	
 
 }

@@ -2,23 +2,21 @@
 import ObjetosDeValor.Senha;
 
 public class Vendedor extends Pessoa {
-
-	//********************************************************************************************************
-	// ALUIZIO, ALTERA ESSA CLASSE
-	// ELA HERDA DE PESSOA E NÃO PRECISA NEM DE NOME, ENDEREÇO E CPF
-	// E ADD A COMISSÃO POR VENDA
-	// NÃO SEI POR QUE ESTÁ DANDO ERRO NO CONSTRUTOR
-	//********************************************************************************************************
 	
-	public String Nome;
-	public String Cpf;
-	public Senha Senha;
+	private Senha Senha;
+	private static final float comissao = 10/100; 
 	
-	public Vendedor(String nome, String documento, Senha senha) {
-		Nome = nome;
-		Cpf = documento;
+	public Vendedor(String nome, String endereco, String cpf, Senha senha) {
+		super(nome, endereco, cpf);
 		Senha = senha;
 	}
 
+	public Senha getSenha() {
+		return Senha;
+	}
+
+	public void setSenha(Senha senha) {
+		Senha = senha;
+	}
 	
 }

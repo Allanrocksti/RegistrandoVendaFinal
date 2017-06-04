@@ -36,43 +36,28 @@ public class PadariaDoXico {
 						
 						Telas.menuCadastro();
 						option = scanner.nextLine();
+						boolean statusCadastro;
 						
 						switch (option) {
 						
 							case "1":
+							
+								statusCadastro = cadastros.produto();
+								cadastros.testeCadastro(statusCadastro);
 								
-
-								//PRODUTO
-								/*System.out.println("Nome do produto: ");
-								String nome = scanner.nextLine();
-								System.out.println("Descrição do produto: ");
-								String descricao = scanner.nextLine();
-								System.out.println("Valor do produto: ");
-								String dado = scanner.nextLine();
-								float valor = extra.verificarF(dado);
-								System.out.println("Codigo do produto: ");
-								String codigo = scanner.nextLine();
-								System.out.println("Quantidade do produto: ");
-								String qtd_produto = scanner.nextLine();
-								
-								produto = new Produto(nome,descricao,valor,codigo,qtd_produto);
-								
-								String msg = arquivo.salvarObjeto(produto);
-								System.out.println(msg);*/
-								
-								String msg = cadastros.produto();
-								System.out.println(msg);
 								break;
 								
 							case "2":
 								
-								//CLIENTE
+								statusCadastro = cadastros.cliente();
+								cadastros.testeCadastro(statusCadastro);
 								
 								break;
 								
 							case "3":
 								
-								//VENDEDOR
+								statusCadastro = cadastros.vendedor();
+								cadastros.testeCadastro(statusCadastro);
 								
 								break;
 								

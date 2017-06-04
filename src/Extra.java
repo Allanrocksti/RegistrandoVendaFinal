@@ -15,22 +15,29 @@ public class Extra {
 	
 	Scanner leitor = new Scanner(System.in);
 	public int verificarI(String ch){
+		
 		boolean key = true;
+		
 		try {
+			
 			while(key){
+				
 				if(validar(ch)){
+					
 					int codigo = Integer.parseInt(ch);
+					
 					if(codigo < 0){
 						System.out.println("O Numero pedido é inteiro não negativo no formato(99, 01,2,3435): ");
 			    		ch = leitor.nextLine();
-					}
-					else{
+					}else{
 						return codigo;
 					}
+					
 		        }else{
 		            System.out.println("O Numero pedido é inteiro não negativo no formato(99, 01,2,3435): ");
 		    		ch = leitor.nextLine();
 		        }
+
 			}
 			
 		} catch (Exception e) {
@@ -42,23 +49,30 @@ public class Extra {
 	}
 	
 	public float verificarF(String ch){
+		
 		boolean key = true;
 		float valorVenda = 0.0f;
+		
 		try {
+			
 			while(key){
+				
 				if(validar(ch)){
+					
 					valorVenda = Float.parseFloat(ch);
+					
 					if(valorVenda < 0){
 						System.out.println("O Valor da venda tem que ser maior que 0: ");
 			    		ch = leitor.nextLine();
-					}
-					else{
+					}else{
 						return valorVenda;
 					}
+					
 		        }else{
 		            System.out.println("O Numero pedido é Float não negativo no formato(99, 01,2,3435,34.55): ");
 		    		ch = leitor.nextLine();
 		        }
+				
 			}
 			
 		} catch (Exception e) {
