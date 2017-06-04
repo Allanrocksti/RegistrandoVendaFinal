@@ -1,7 +1,7 @@
 
 public class Telas {
 	
-	static void menuInicial(){
+	public static void menuInicial(){
 		
 		System.out.println("     PADARIA DO XICO\n");
 		System.out.println("1 - INICIAR UMA VENDA");
@@ -28,7 +28,6 @@ public class Telas {
 		System.out.println("Please, digite uma opção válida!");
 		
 	}
-	
-	
+
 
 }

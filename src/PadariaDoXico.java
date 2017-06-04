@@ -24,7 +24,18 @@ public class PadariaDoXico {
 			
 				case "1":
 					
-					//INICIAR A VENDA
+					// COLETAR VENDEDOR
+					// VERIFICAR CADASTRO
+					
+					// WHILE CONTINUAR == TRUE
+						
+						// COLETAR CLIENTE
+						// VERIFICAR CADASTRO
+					
+						// CALCULAR VENDA
+						// SALVAR VENDA
+						// IMPRIMIR
+						// CONTINUAR?
 					
 					break;
 					

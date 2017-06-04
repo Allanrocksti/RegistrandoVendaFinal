@@ -56,7 +56,7 @@ public class Cadastros {
 			// NÃO ENTENDI BEM A A CLASSE EXTRA
 			// MAS SE ELA FOR PARA ERROS NO VALOR DIGITADO
 			// CRIA UMA EXCESSÃO PARA O VALORVENDA NÃO SER MENOR QUE VALORCUSTO
-			float valor = extra.verificarF(dado);
+			//float valor = extra.verificarF(dado);
 			
 			//if(se der tudo certo){
 				//Produto produto = new Produto(barras, nome, valorVenda, valor);
@@ -138,7 +138,7 @@ public class Cadastros {
 		
 		if(cadastroValido == true){
 			
-			Vendedor vendedor = new Vendedor(nome, endereco, cpf, senha);
+			Vendedor vendedor = new Vendedor(nome, endereco, cpf/*, senha*/);
 			// SALVAR VENDEDOR EM ARQUIVO SEPARADO PARA VENDEDORES
 			// TEM ALGUMA FORMA DE SALVAR COM HASHMAP OU ALGO DO TIPO?
 			
