@@ -17,56 +17,48 @@ import java.io.ObjectOutputStream;
  */
 public class Arquivo {
 
-	public static String salvarObjeto(Produto produto){
+	public static String salvarObjeto(Produto produto) {
 		String msg = "";
 		String nome = produto.getNome();
 		try {
-			FileOutputStream fos = new FileOutputStream(nome+".ser");
+			FileOutputStream fos = new FileOutputStream(nome + ".ser");
 			ObjectOutputStream oos = new ObjectOutputStream(fos);
 			oos.writeObject(produto);
-			
+
 			oos.close();
 			fos.close();
 			msg = "Arquivo Salvo com sucesso";
-			
-		} 
-		
-		 catch (IOException e) {
+
+		}
+
+		catch (IOException e) {
 			// TODO Auto-generated catch block
 			System.out.println("Erro ao salvar o arquivo: ");
 			e.printStackTrace();
 		}
-		
-		
-		
+
 		return msg;
 	}
-	public static Compra lerObjeto(String nome){
-		
+
+	public static Compra lerObjeto(String nome) {
+
 		Compra novo = null;
 		try {
-			FileInputStream fis = new FileInputStream(nome+".ser");
+			FileInputStream fis = new FileInputStream(nome + ".ser");
 			ObjectInputStream ois = new ObjectInputStream(fis);
 			novo = (Compra) ois.readObject();
 		} catch (ClassNotFoundException e) {
-				// TODO Auto-generated catch block
+			// TODO Auto-generated catch block
 			e.printStackTrace();
-			
+
 		} catch (FileNotFoundException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-		}catch(IOException e){
+		} catch (IOException e) {
 			e.printStackTrace();
 		}
-		
-			
-			
-		
-		
-		
+
 		return novo;
-}
-		
 	}
 
-
+}

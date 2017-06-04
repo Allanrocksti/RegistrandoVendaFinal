@@ -48,6 +48,11 @@ public class TratamentoCpf {
 		
 	}
 	
+	/**
+	 * Método para descobrir se o CPF é válido
+	 * @param cpf String contendo o CPF
+	 * @return Retorna um valor booleano para validação True = Válido False = Inválido
+	 */
 	public boolean cpfValido(String cpf) {
 
 		    if (cpf.equals("00000000000") || cpf.equals("11111111111") ||

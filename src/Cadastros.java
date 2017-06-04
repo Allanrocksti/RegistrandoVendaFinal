@@ -1,4 +1,5 @@
 import java.util.Scanner;
+import Tratamentos.TratamentoCpf;
 
 /**
  *@date 3 de jun de 2017
@@ -36,4 +37,39 @@ public class Cadastros {
 
 		return msg;
 	}
+	
+	public static boolean cliente(){
+		
+		// É CORRETO COLETAR UM OBJETO DESSA FORMA?
+		//Pessoa cliente;
+		TratamentoCpf tratamentoCpf = new TratamentoCpf();
+		
+		boolean cadastroValido;
+		
+		System.out.print("Nome: ");
+		String nome = scanner.nextLine();
+		
+		System.out.print("Endereço: ");
+		String endereco = scanner.nextLine();
+		
+		System.out.print("Cpf: ");
+		String cpf = scanner.nextLine();
+		
+		if(tratamentoCpf.cpfValido(cpf) == true)
+			cadastroValido = true;
+		else
+			cadastroValido = false;
+		
+		if(cadastroValido == true){
+			
+			Pessoa cliente = new Pessoa(nome, endereco, cpf);
+			// SALVAR CLIENTE EM ARQUIVO SEPARADO PARA CLIENTES
+			// TEM ALGUMA FORMA DE SALVAR COM HASHMAP OU ALGO DO TIPO?
+			
+		}
+		
+		return cadastroValido;
+		
+	}
+	
 }
