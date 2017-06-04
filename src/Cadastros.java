@@ -10,31 +10,28 @@ import java.util.Scanner;
  * @author Neto
  *
  */
+
 public class Cadastros {
-	
+
 	private static Scanner scanner = new Scanner(System.in);
-	
+
 	Arquivo arquivo = new Arquivo();
-	
-	
+
 	Extra extra = new Extra();
-	public String produto(){
+
+	public String produto() {
 		Produto produto;
 		String msg = "";
 		System.out.println("Nome do produto: ");
 		String nome = scanner.nextLine();
-		System.out.println("Descrição do produto: ");
-		String descricao = scanner.nextLine();
 		System.out.println("Valor do produto: ");
 		String dado = scanner.nextLine();
 		float valor = extra.verificarF(dado);
 		System.out.println("Codigo do produto: ");
 		String codigo = scanner.nextLine();
-		System.out.println("Quantidade do produto: ");
-		String qtd_produto = scanner.nextLine();
-		
-		produto = new Produto(nome,descricao,valor,codigo,qtd_produto);
-		
+
+		produto = new Produto(nome, valor, codigo);
+
 		msg = Arquivo.salvarObjeto(produto);
 
 		return msg;

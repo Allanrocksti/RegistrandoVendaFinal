@@ -18,7 +18,6 @@ public class PadariaDoXico {
 		while(exitMenu != true){
 			
 			Telas.menuInicial();
-			//option = coletarOpcao;
 			option = scanner.nextLine();
 			
 			switch (option) {
@@ -36,7 +35,6 @@ public class PadariaDoXico {
 					while(exitCadastro != true){
 						
 						Telas.menuCadastro();
-						//option = coletarOpcao;
 						option = scanner.nextLine();
 						
 						switch (option) {

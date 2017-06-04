@@ -1,6 +1,7 @@
-public class Pessoa
-{
-	public String PrimeiroNome;
-	public String UltimoNumero;
+public class Pessoa {
+	
+	public String Nome;
+	public String Endereco;
 	public String CPF;
+	
 }
