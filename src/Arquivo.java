@@ -33,7 +33,8 @@ public class Arquivo {
 		
 		 catch (IOException e) {
 			// TODO Auto-generated catch block
-			 msg = "Falha no salvamento do arquivo";
+			System.out.println("Erro ao salvar o arquivo: ");
+			e.printStackTrace();
 		}
 		
 		

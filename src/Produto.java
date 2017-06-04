@@ -17,7 +17,9 @@ public class Produto
 		QuantidadeDisponivel = quantidadeDisponivel;
 	}
 	
-	
+	public void imprimir(Produto produto){
+		System.out.println("Nome do produto: "+produto.getNome());
+	}
 	
 	public String getNome() {
 		return Nome;

@@ -7,9 +7,10 @@ public class PadariaDoXico {
 
 	public static void main(String[] args) {
 		
-		Arquivo arquivo = new Arquivo();
-		Produto produto;
-		Extra extra = new Extra();
+		//Arquivo arquivo = new Arquivo();
+		//Produto produto;
+		//Extra extra = new Extra();
+		Cadastros cadastros = new Cadastros();
 		scanner = new Scanner(System.in);
 		boolean exitMenu = false;
 		String option = "0";
@@ -44,7 +45,7 @@ public class PadariaDoXico {
 								
 
 								//PRODUTO
-								System.out.println("Nome do produto: ");
+								/*System.out.println("Nome do produto: ");
 								String nome = scanner.nextLine();
 								System.out.println("Descrição do produto: ");
 								String descricao = scanner.nextLine();
@@ -58,7 +59,11 @@ public class PadariaDoXico {
 								
 								produto = new Produto(nome,descricao,valor,codigo,qtd_produto);
 								
-								arquivo.salvarObjeto(produto);
+								String msg = arquivo.salvarObjeto(produto);
+								System.out.println(msg);*/
+								
+								String msg = cadastros.produto();
+								System.out.println(msg);
 								break;
 								
 							case "2":
