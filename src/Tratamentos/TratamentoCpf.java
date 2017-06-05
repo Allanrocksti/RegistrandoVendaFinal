@@ -2,6 +2,12 @@ package Tratamentos;
 
 import java.util.InputMismatchException;
 
+/**
+ * Classe para verificar se o CPF é válido e para a impressão personalizada " ***.***.***-** "
+ * @author Allan Roque Barbosa da Silva - 1610013738
+ *
+ */
+
 public class TratamentoCpf {
 
 	/**

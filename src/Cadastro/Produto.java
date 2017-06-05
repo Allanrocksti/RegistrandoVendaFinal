@@ -1,3 +1,11 @@
+package Cadastro;
+
+/**
+ * Classe com os dados dos produtos
+ * @author Allan Roque Barbosa da Silva - 1610013738
+ *
+ */
+
 public class Produto {
 
 	private String CodBarras;
@@ -5,7 +13,7 @@ public class Produto {
 	private float ValorVenda;
 	private float ValorCusto;
 
-	public Produto(String codBarras, String nome, float valorVenda, float valorCusto) {
+	public Produto(String codBarras, String nome, float valorCusto, float valorVenda) {
 		super();
 		CodBarras = codBarras;
 		Nome = nome;

@@ -1,4 +1,10 @@
 
+/**
+ * Classe com todas as "telas" que serão ultilizadas no prompt 
+ * @author Allan Roque Barbosa da Silva - 1610013738
+ *
+ */
+
 public class Telas {
 	
 	public static void menuInicial(){

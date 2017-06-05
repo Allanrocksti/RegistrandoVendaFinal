@@ -1,6 +1,58 @@
 
 import java.util.Scanner;
 
+import Cadastro.Cadastros;
+
+/**
+ * Classe da aplicação principal, onde abriga o main
+ * @author Allan Roque Barbosa da Silva - 1610013738
+ *
+ */
+
+//*****************************************************************
+// ALUIZIO, TEMOS QUE SALVAR OS DADOS DO CADASTRO PARA PODER CONTINUAR
+// PENSEI NO SEGUINTE, SALVAMOS EM .TXT COM ARREYLIST
+// FIZ TUDO QUE SE PODE FAZER SEM TOCAR NO ARQUIVO
+// IA COMEÇAR A IMPLEMENTAR O SAVE, MAS TÁ TARDE E VOU DORMIR
+// VAMOS DIVIDIR EM 4 ARQUIVOS:
+//
+//     CLIENTE.TXT
+//     VENDEDOR.TXT
+//     PRODUTOS.TXT
+//     VENDAS.TXT
+//
+// O VENDAS.TXT SERÁ O UNICO EM QUE NÃO PRECISA DE MANIPULAÇÃO DOS ARQUIVOS
+// É SÓ DA UM ADD E SALVAR, POIS A GENTE NÃO VAI PRECISAR PEGAR OS ARQUIVOS
+// É SÓ SALVAR NAQUELE ESTILO
+// 
+// ##################################################################
+//
+// 5:55 - 05/06/2017 - VENDA 1 - VENDEDORX - CPFX - ENDERX
+// CLIENTEX - CPFX - ENDERX
+// BARRASA - PRODUTOA - QTDA - VALORA - VALORTTA
+// BARRASB - PRODUTOB - QTDB - VALORB - VALORTTB
+// BARRASC - PRODUTOC - QTDC - VALORC - VALORTTC
+// BARRASD - PRODUTOD - QTDD - VALORD - VALORTTD
+// BARRASE - PRODUTOE - QTDE - VALORE - VALORTTE
+// BARRASF - PRODUTOF - QTDF - VALORF - VALORTTF
+// SUBTOTALX - DESCONTO - TOTALNOTAX
+//
+// ##################################################################
+//
+// 6:01 - 05/06/2017 - VENDA 1 - VENDEDORX - CPFX - ENDERX
+// CLIENTEX - CPFX - ENDERX
+// BARRASA - PRODUTOA - QTDA - VALORA - VALORTTA
+// BARRASB - PRODUTOB - QTDB - VALORB - VALORTTB
+// BARRASC - PRODUTOC - QTDC - VALORC - VALORTTC
+// BARRASD - PRODUTOD - QTDD - VALORD - VALORTTD
+// BARRASE - PRODUTOE - QTDE - VALORE - VALORTTE
+// BARRASF - PRODUTOF - QTDF - VALORF - VALORTTF
+// SUBTOTALX - DESCONTO - TOTALNOTAX
+//
+//##################################################################
+//
+//*****************************************************************
+
 public class PadariaDoXico {
 	
 	private static Scanner scanner;
@@ -47,28 +99,26 @@ public class PadariaDoXico {
 						
 						Telas.menuCadastro();
 						option = scanner.nextLine();
-						boolean statusCadastro;
+						String strCadastro;
 						
 						switch (option) {
 						
 							case "1":
 							
-								statusCadastro = cadastros.produto();
-								cadastros.testeCadastro(statusCadastro);
+								strCadastro = cadastros.produto();
+								
 								
 								break;
 								
 							case "2":
 								
-								statusCadastro = cadastros.cliente();
-								cadastros.testeCadastro(statusCadastro);
+								strCadastro = cadastros.cliente();
 								
 								break;
 								
 							case "3":
 								
-								statusCadastro = cadastros.vendedor();
-								cadastros.testeCadastro(statusCadastro);
+								strCadastro = cadastros.vendedor();
 								
 								break;
 								
