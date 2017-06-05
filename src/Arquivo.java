@@ -132,7 +132,7 @@ public class Arquivo {
 			return clientes;
 			
 		}
-		return valores;
+		return valores;//SE NÃO ENTRAR EM NENHUM IF RETORNA NULL
 	}
 	
 	
