@@ -19,6 +19,7 @@ import Tratamentos.TratamentoValor;
  * Cadastros: Produto, Cliente e Vendedor
  * 
  * @author Allan Roque Barbosa da Silva - 1610013738
+ * 		   Aluizio Barbosa Maciel Neto - 1610015465
  *
  */
 

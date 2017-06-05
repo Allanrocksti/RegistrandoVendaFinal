@@ -1,11 +1,16 @@
 
 
+import java.io.BufferedReader;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
+import java.io.FileReader;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
+import java.io.PrintWriter;
+import java.util.ArrayList;
 
 import Cadastro.Pessoa;
 import Cadastro.Produto;
@@ -17,80 +22,118 @@ import Cadastro.Produto;
  */
 
 /**
- * @author Neto
+ * @author Aluízio Barbosa Maciel Neto
  *
  */
 public class Arquivo {
 
-	public static String salvarObjeto(Produto produto) {
-		
-		String msg = "";
-		String nome = produto.getNome();
-		
+	public void salvarCadastro(String str, int type){
+		if(type == 1){
+		 FileWriter arq;
 		try {
-			
-			FileOutputStream fos = new FileOutputStream(nome + ".ser");
-			ObjectOutputStream oos = new ObjectOutputStream(fos);
-			oos.writeObject(produto);
-
-			oos.close();
-			fos.close();
-			
-			msg = "Arquivo Salvo com sucesso";
-
-		}catch (IOException e) {
-			
-			System.out.println("Erro ao salvar o arquivo: ");
-			e.printStackTrace();
-			
-		}
-
-		return msg;
-		
-	}
-
-	public static Compra lerObjeto(String nome) {
-
-		Compra novo = null;
-		
-		try {
-			
-			FileInputStream fis = new FileInputStream(nome + ".ser");
-			ObjectInputStream ois = new ObjectInputStream(fis);
-			novo = (Compra) ois.readObject();
-			
-		}catch (ClassNotFoundException e) {
-			e.printStackTrace();
-		}catch (FileNotFoundException e) {
-			e.printStackTrace();
-		}catch (IOException e) {
+			arq = new FileWriter("Produto.txt");
+			PrintWriter gravarArq = new PrintWriter(arq);
+		    gravarArq.write(str);
+		    gravarArq.close();
+		    System.out.println("Produto cadastrado com sucesso!!!");
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-
-		return novo;
+	     
+	}else if(type == 2){
+		 FileWriter arq;
+			try {
+				arq = new FileWriter("Cliente.txt");
+				PrintWriter gravarArq = new PrintWriter(arq);
+				gravarArq.write(str);
+				gravarArq.close();
+				System.out.println("Cliente cadastrado com sucesso!!!");
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+	}else if(type == 3){
+		 FileWriter arq;
+			try {
+				arq = new FileWriter("Vendedor.txt");
+				PrintWriter gravarArq = new PrintWriter(arq);
+				gravarArq.write(str);
+				gravarArq.close();
+				System.out.println("Vendedor cadastrado com sucesso!!!");
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+	}else if(type == 4){
+		 FileWriter arq;
+			try { 
+				arq = new FileWriter("Venda.txt");
+				PrintWriter gravarArq = new PrintWriter(arq);
+				gravarArq.write(str);
+				gravarArq.close();
+				System.out.println("Venda Feita com sucesso!!!");
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 	}
-
-	public String salvarCliente(Pessoa cliente){
-		
-		String msg = "";
-		
-		try{
+}
+	public ArrayList<String> lerCadastro(String valor){
+		ArrayList<String> valores = null;
+		if(valor == "Vendedor"){
+			ArrayList<String> vendedores = new ArrayList<>();
+			FileReader fr;
+			try {
+				fr = new FileReader("Vendedor.txt");
+				BufferedReader lerArq = new BufferedReader(fr);
+				vendedores.add(lerArq.readLine());
+			} catch (FileNotFoundException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			return vendedores;
 			
-			FileOutputStream fos = new FileOutputStream("Clientes.txt");
-			ObjectOutputStream oos = new ObjectOutputStream(fos);
-			oos.writeObject(cliente);
-
-			oos.close();
-			fos.close();
-			
-			msg = "Arquivo Salvo com sucesso";
-			
-		}catch (Exception e) {
-			msg = "Erro ao salvar o cliente!"; 
 		}
-		
-		return msg;
-		
+		if(valor == "produto"){
+			ArrayList<String> produtos = new ArrayList<>();
+			FileReader fr;
+			try {
+				fr = new FileReader("Vendedor.txt");
+				BufferedReader lerArq = new BufferedReader(fr);
+				produtos.add(lerArq.readLine());
+			} catch (FileNotFoundException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			return produtos;
+			
+		}
+		if(valor == "cliente"){
+			ArrayList<String> clientes = new ArrayList<>();
+			FileReader fr;
+			try {
+				fr = new FileReader("Vendedor.txt");
+				BufferedReader lerArq = new BufferedReader(fr);
+				clientes.add(lerArq.readLine());
+			} catch (FileNotFoundException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			return clientes;
+			
+		}
+		return valores;
 	}
+	
 	
 }

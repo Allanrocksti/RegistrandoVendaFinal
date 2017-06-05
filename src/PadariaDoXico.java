@@ -1,4 +1,5 @@
 
+import java.util.ArrayList;
 import java.util.Scanner;
 
 import Cadastro.Cadastros;
@@ -59,9 +60,8 @@ public class PadariaDoXico {
 
 	public static void main(String[] args) {
 		
-		//Arquivo arquivo = new Arquivo();
-		//Produto produto;
-		//Extra extra = new Extra();
+		Arquivo arquivo = new Arquivo();
+		ArrayList<String> retorno = new ArrayList<String>();
 		Cadastros cadastros = new Cadastros();
 		scanner = new Scanner(System.in);
 		boolean exitMenu = false;
@@ -75,14 +75,22 @@ public class PadariaDoXico {
 			switch (option) {
 			
 				case "1":
-					
+					//VOU PASSAR O TIPO DO ARQUIVO QUE EU QUERO, PARA CADA MOMENTO DA EXECUÇÃO, ATRAVES DO LER CADASTRO
+					String vendedor = "vendedor";
+					String produto = "produto";
+					String cliente = "cliente";
 					// COLETAR VENDEDOR
-					// VERIFICAR CADASTRO
-					
-					// WHILE CONTINUAR == TRUE
-						
-						// COLETAR CLIENTE
+					retorno = arquivo.lerCadastro(produto);//RETORNA O ARRAYLIST COM OS VALORES DO ARQUIVO
+					if(retorno == null){
+						System.out.println("Erro ao retonar o Array");//SE FOR NULL É POR QUE NÃO ENTROU EM NENHUM IF
+					}else{
 						// VERIFICAR CADASTRO
+						
+						// WHILE CONTINUAR == TRUE
+							
+							// COLETAR CLIENTE
+							// VERIFICAR CADASTRO
+					}
 					
 						// CALCULAR VENDA
 						// SALVAR VENDA
@@ -106,20 +114,23 @@ public class PadariaDoXico {
 							case "1":
 							
 								strCadastro = cadastros.produto();
-								
+								int type = 1;
+								arquivo.salvarCadastro(strCadastro, type);
 								
 								break;
 								
 							case "2":
 								
 								strCadastro = cadastros.cliente();
-								
+								int type2 = 2;
+								arquivo.salvarCadastro(strCadastro, type2);
 								break;
 								
 							case "3":
 								
 								strCadastro = cadastros.vendedor();
-								
+								int type3 = 3;
+								arquivo.salvarCadastro(strCadastro, type3);
 								break;
 								
 							case "4":
