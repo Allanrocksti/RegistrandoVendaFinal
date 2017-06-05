@@ -31,9 +31,9 @@ public class Arquivo {
 		if(type == 1){
 		 FileWriter arq;
 		try {
-			arq = new FileWriter("Produto.txt");
+			arq = new FileWriter("Produto.txt",true);
 			PrintWriter gravarArq = new PrintWriter(arq);
-		    gravarArq.write(str);
+		    gravarArq.append(str);
 		    gravarArq.close();
 		    System.out.println("Produto cadastrado com sucesso!!!");
 		} catch (IOException e) {
@@ -81,7 +81,7 @@ public class Arquivo {
 }
 	public ArrayList<String> lerCadastro(String valor){
 		ArrayList<String> valores = null;
-		if(valor == "Vendedor"){
+		if(valor == "vendedor"){
 			ArrayList<String> vendedores = new ArrayList<>();
 			FileReader fr;
 			try {
@@ -102,9 +102,10 @@ public class Arquivo {
 			ArrayList<String> produtos = new ArrayList<>();
 			FileReader fr;
 			try {
-				fr = new FileReader("Vendedor.txt");
+				fr = new FileReader("Produto.txt");
 				BufferedReader lerArq = new BufferedReader(fr);
-				produtos.add(lerArq.readLine());
+				for(int i = 0; i <100; i++)
+					produtos.add(lerArq.readLine());
 			} catch (FileNotFoundException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();

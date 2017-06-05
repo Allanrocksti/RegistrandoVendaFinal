@@ -84,6 +84,10 @@ public class PadariaDoXico {
 					if(retorno == null){
 						System.out.println("Erro ao retonar o Array");//SE FOR NULL É POR QUE NÃO ENTROU EM NENHUM IF
 					}else{
+						for (String string : retorno) {//PRINTO CADA STRING DENTRO DA MINHA COLEÇÃO
+							if(string != null)			//PODE COMPARAR O PRODUTO AQUI E PEGAR AS INFORMAÇÕES.
+								System.out.println(string);
+						}
 						// VERIFICAR CADASTRO
 						
 						// WHILE CONTINUAR == TRUE
@@ -115,8 +119,7 @@ public class PadariaDoXico {
 							
 								strCadastro = cadastros.produto();
 								int type = 1;
-								arquivo.salvarCadastro(strCadastro, type);
-								
+								arquivo.salvarCadastro(strCadastro, type);			
 								break;
 								
 							case "2":
