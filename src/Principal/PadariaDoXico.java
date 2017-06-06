@@ -15,16 +15,17 @@ import Cadastro.Cadastros;
 
 //****************************************************************************************************
 //
-// GOOD NEWS
+// GOOD NEWS ALLAN,
 //
 // ESTA SALVANDO, PENA QUE A CADA UMA COISA SALVA GERA UM .TXT, MAS FUNCIONA
+//COMPRA SÓ FALTAS AS FUNÇÕES, O ARMAZENAMENTO TÁ FLUINDO NORMARU DESU
 //
 //*****************************************************************************************************
 // ERROS DURANTE TESTES PARA SER CORRIGIDOS
 // 
 // * VERIFICAR PQ O CPF 646.846.284-34 É INVÁLIDO
 // * LIMPAR BUFFER DOS CADASTROS
-// * ERRO DE NULL POINTER EXCEPTION NA CLASSE ARQUIVO, VENDA
+// * ERRO DE NULL POINTER EXCEPTION NA CLASSE ARQUIVO, VENDA//ERRATA - JÁ RESOLVI
 // PF ALUIZIO, RESOLVE ESSES BUGS E PODE IR ADIANTANDO O RESTO
 //
 //*****************************************************************************************************
