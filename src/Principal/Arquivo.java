@@ -70,7 +70,8 @@ public class Arquivo {
 		try {
 			FileReader fr = new FileReader(arquivo);
 			BufferedReader br = new BufferedReader(fr);
-			br.close(); 
+			br.close();
+			fr.close();
 			existe = true;
 		} catch (FileNotFoundException e) {
 			return existe;

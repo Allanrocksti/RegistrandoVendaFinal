@@ -1,4 +1,8 @@
 package Principal;
+import java.io.BufferedReader;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
@@ -82,7 +86,7 @@ public class Venda {
 			
 		}
 		
-		return cpf;
+		return cpf + "_" + senha;
 		
 	}
 
@@ -139,6 +143,32 @@ public class Venda {
 		
 	}
 	
+	public String nomeProduto(String barra){
+		
+		String str = "";
+		
+		try {
+			
+			FileReader fr = new FileReader(barra + ".txt");
+			BufferedReader br = new BufferedReader(fr);
+			
+			str = br.readLine();
+			
+			br.close();
+			fr.close();
+			
+		} catch (FileNotFoundException e) {
+			// TODO: handle exception
+		} catch (IOException e) {
+			// TODO: handle exception
+		} catch (Exception e) {
+			// TODO: handle exception
+		}
+		
+		return str;
+		
+	}
+	
 	/**
 	 * Coleta uma quantidade válida para atribuir aos produtos
 	 * @return quantidade de intens
@@ -154,7 +184,7 @@ public class Venda {
 
 			try {
 				
-				System.out.println("Quantidade do Produto (0 para encerrar a venda): ");
+				System.out.print("Quantidade do Produto (0 para encerrar a venda): ");
 				qtd = leitor.nextInt();
 				
 				if(qtd > -1 && qtd <= 1000)
