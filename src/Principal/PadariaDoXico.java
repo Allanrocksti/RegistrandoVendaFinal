@@ -63,7 +63,7 @@ public class PadariaDoXico {
 	private static Scanner scanner;
 
 	public static void main(String[] args) {
-		
+		Extra extra = new Extra();
 		Arquivo arquivo = new Arquivo();
 		Cadastros cadastros = new Cadastros();
 		Compra compra = new Compra();
@@ -77,9 +77,9 @@ public class PadariaDoXico {
 			option = scanner.nextLine();
 			
 			switch (option) {
-			
+				//VENDA
 				case "1":
-					
+					/*JÁ TO COLOCANDO PRODUTOS DENTRO DO CARRINHO, SÓ FALTA OS CALCULOS, CRIE OUTRO HASHMAP*/
 					Venda venda = new Venda();
 					HashMap<String, Integer> carrinho = new HashMap<String, Integer>();
 					
@@ -96,7 +96,8 @@ public class PadariaDoXico {
 						carrinho.put(barra, qtd);
 						
 						System.out.println("Deseja adicionar novos produtos na venda? [1] - Sim [2] - Não");
-						int opcao = Integer.parseInt(scanner.nextLine());
+						String ch = scanner.nextLine();
+						int opcao = extra.verificarI(ch);
 						if(opcao == 2){
 							compra.compra(carrinho, cpfVendedor, cpfCliente);
 							exit = false;

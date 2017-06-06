@@ -6,6 +6,8 @@ import java.text.DateFormat;
 import java.util.Date;
 import java.util.HashMap;
 
+import javax.swing.JOptionPane;
+
 public class Compra {
 	
 	//Pessoa Vendendor = new Pessoa();
@@ -37,7 +39,10 @@ public class Compra {
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 		}
-			
+		/*public void calcular desconto(){
+		 * 
+		}*/
+		
 		
 		return msg;
 	}
