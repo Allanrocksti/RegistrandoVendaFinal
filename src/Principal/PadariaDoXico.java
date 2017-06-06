@@ -5,28 +5,29 @@ import java.util.Scanner;
 
 import Cadastro.Cadastros;
 
+
 /**
  * Classe da aplicação principal, onde abriga o main
  * @author Allan Roque Barbosa da Silva - 1610013738
  *
  */
 
-//*****************************************************************
-// ALUIZIO, TEMOS QUE SALVAR OS DADOS DO CADASTRO PARA PODER CONTINUAR
-// PENSEI NO SEGUINTE, SALVAMOS EM .TXT COM ARREYLIST
-// FIZ TUDO QUE SE PODE FAZER SEM TOCAR NO ARQUIVO
-// IA COMEÇAR A IMPLEMENTAR O SAVE, MAS TÁ TARDE E VOU DORMIR
-// VAMOS DIVIDIR EM 4 ARQUIVOS:
+//****************************************************************************************************
 //
-//     CLIENTE.TXT
-//     VENDEDOR.TXT
-//     PRODUTOS.TXT
-//     VENDAS.TXT
+// GOOD NEWS
 //
-// O VENDAS.TXT SERÁ O UNICO EM QUE NÃO PRECISA DE MANIPULAÇÃO DOS ARQUIVOS
-// É SÓ DA UM ADD E SALVAR, POIS A GENTE NÃO VAI PRECISAR PEGAR OS ARQUIVOS
-// É SÓ SALVAR NAQUELE ESTILO
+// ESTA SALVANDO, PENA QUE A CADA UMA COISA SALVA GERA UM .TXT, MAS FUNCIONA
+//
+//*****************************************************************************************************
+// ERROS DURANTE TESTES PARA SER CORRIGIDOS
 // 
+// * VERIFICAR PQ O CPF 646.846.284-34 É INVÁLIDO
+// * LIMPAR BUFFER DOS CADASTROS
+// * ERRO DE NULL POINTER EXCEPTION NA CLASSE ARQUIVO, VENDA
+// PF ALUIZIO, RESOLVE ESSES BUGS E PODE IR ADIANTANDO O RESTO
+//
+//*****************************************************************************************************
+
 // ##################################################################
 //
 // 5:55 - 05/06/2017 - VENDA 1 - VENDEDORX - CPFX - ENDERX
@@ -62,7 +63,6 @@ public class PadariaDoXico {
 	public static void main(String[] args) {
 		
 		Arquivo arquivo = new Arquivo();
-		ArrayList<String> retorno = new ArrayList<String>();
 		Cadastros cadastros = new Cadastros();
 		scanner = new Scanner(System.in);
 		boolean exitMenu = false;
@@ -76,31 +76,16 @@ public class PadariaDoXico {
 			switch (option) {
 			
 				case "1":
-					//VOU PASSAR O TIPO DO ARQUIVO QUE EU QUERO, PARA CADA MOMENTO DA EXECUÇÃO, ATRAVES DO LER CADASTRO
-					String vendedor = "vendedor";
-					String produto = "produto";
-					String cliente = "cliente";
-					// COLETAR VENDEDOR
-					//retorno = arquivo.lerCadastro(produto);//RETORNA O ARRAYLIST COM OS VALORES DO ARQUIVO
-					if(retorno == null){
-						System.out.println("Erro ao retonar o Array");//SE FOR NULL É POR QUE NÃO ENTROU EM NENHUM IF
-					}else{
-						for (String string : retorno) {//PRINTO CADA STRING DENTRO DA MINHA COLEÇÃO
-							if(string != null)			//PODE COMPARAR O PRODUTO AQUI E PEGAR AS INFORMAÇÕES.
-								System.out.println(string);
-						}
-						// VERIFICAR CADASTRO
-						
-						// WHILE CONTINUAR == TRUE
-							
-							// COLETAR CLIENTE
-							// VERIFICAR CADASTRO
-					}
 					
-						// CALCULAR VENDA
-						// SALVAR VENDA
-						// IMPRIMIR
-						// CONTINUAR?
+					Venda venda = new Venda();
+					
+					String cpfVendedor = venda.entrarComCpfVendedor();
+					String cpfCliente = venda.entrarComCpfCliente();
+					
+					cpfVendedor = cpfCliente;
+					cpfCliente = cpfVendedor;
+					//while()
+				
 					
 					break;
 					
@@ -112,26 +97,29 @@ public class PadariaDoXico {
 						
 						Telas.menuCadastro();
 						option = scanner.nextLine();
-						String strCadastro;
+						String strCadastro = "";
 						
 						switch (option) {
 						
 							case "1":
-							
+									
 								strCadastro = cadastros.produto();
 								System.out.println(strCadastro);
+								
 								break;
 								
 							case "2":
-								
+							
 								strCadastro = cadastros.cliente();
-								//arquivo.salvarCadastro(strCadastro, "Cliente.txt");
+								System.out.println(strCadastro);
+							
 								break;
 								
 							case "3":
 								
 								strCadastro = cadastros.vendedor();
-								//arquivo.salvarCadastro(strCadastro, "Vendedor.txt");
+								System.out.println(strCadastro);
+															
 								break;
 								
 							case "4":

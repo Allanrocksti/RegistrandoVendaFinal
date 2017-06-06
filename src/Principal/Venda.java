@@ -1,5 +1,7 @@
+package Principal;
 import java.util.InputMismatchException;
 import java.util.Scanner;
+
 import Tratamentos.TratamentoCpf;
 
 /**
@@ -11,6 +13,7 @@ import Tratamentos.TratamentoCpf;
 public class Venda {
 
 	private static Scanner leitor;
+	private static Arquivo arquivo;
 	
 	private int quantidade;
 	private float subTotal;
@@ -20,7 +23,7 @@ public class Venda {
 	 * Coleta e retorna um cpf válido
 	 * @return CPF em String
 	 */
-	private static String coletarCpf(){
+	private static String coletarCpf(String pessoa){
 		
 		boolean valido = false;
 		String cpf = "";
@@ -30,7 +33,7 @@ public class Venda {
 
 		while(valido != true){
 		
-			System.out.print("Digite o CPF: ");
+			System.out.print("Digite o CPF do " + pessoa + " : ");
 			cpf = leitor.nextLine();
 			
 			if(tCpf.cpfValido(cpf) == true)
@@ -44,6 +47,17 @@ public class Venda {
 		
 	}
 	
+	private String coletarSenha() {
+		
+		String senha = "";
+		leitor = new Scanner(System.in);
+		
+		System.out.print("Senha: ");
+		senha = leitor.nextLine();
+		
+		return senha;
+	}
+	
 	// FALTA VERIFICAR SE ESTÁ CADASTRADO NO ARQUIVO
 	/**
 	 * Verifica se o CPF do vendedor é válido e se está cadastrado
@@ -52,22 +66,24 @@ public class Venda {
 	public String entrarComCpfVendedor(){
 		
 		boolean cadastrado = false;
+		String cpf = "";
 		
-		while (cadastrado != false){
+		while (cadastrado != true){
 			
-			String cpf = coletarCpf();
+			cpf = coletarCpf("Vendedor");
+			String senha = coletarSenha();
 			
-			// IF (TÁ CADASTRADO? == SIM)
-				//cadastrado = true;
-			// ELSE
-				// NAO CADASTRADO DIGITE DENOVO
+			cadastrado = arquivo.verificarArquivoJaExistente(cpf + "_" + senha + ".txt");
+			
+			if(cadastrado == false)
+				System.out.println("Vendedor não cadastrado!");
 			
 		}
 		
 		return cpf;
 		
 	}
-	
+
 	// FALTA VERIFICAR SE ESTÁ CADASTRADO NO ARQUIVO
 	/**
 	 * Verifica se o CPF do CLIENTE é válido e se está cadastrado
@@ -76,15 +92,16 @@ public class Venda {
 	public String entrarComCpfCliente(){
 			
 		boolean cadastrado = false;
+		String cpf = "";
 		
 		while (cadastrado != false){
 			
-			String cpf = coletarCpf();
+			cpf = coletarCpf("Cliente");
 			
-			// IF (TÁ CADASTRADO? == SIM)
-				//cadastrado = true;
-			// ELSE
-				// NAO CADASTRADO DIGITE DENOVO
+			cadastrado = arquivo.verificarArquivoJaExistente(cpf + ".txt");
+			
+			if(cadastrado == false)
+				System.out.println("Cliente não cadastrado!");
 			
 		}
 		
@@ -109,10 +126,10 @@ public class Venda {
 			System.out.println("Barras: ");
 			barras = leitor.nextLine();
 			
-			// IF (TÁ CADASTRADO? == SIM)
-				//cadastrado = true;
-			// ELSE
-				// NAO CADASTRADO DIGITE DENOVO
+			cadastrado = arquivo.verificarArquivoJaExistente(barras + ".txt");
+			
+			if(cadastrado == false)
+				System.out.println("Produto não cadastrado!");
 			
 		}
 		

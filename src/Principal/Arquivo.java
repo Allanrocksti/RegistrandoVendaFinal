@@ -31,7 +31,7 @@ import Cadastro.Produto;
  *
  */
 public class Arquivo {
-
+/*
 	private static class AppendableObjectOutputStream extends ObjectOutputStream {
 
         public AppendableObjectOutputStream(OutputStream out) throws IOException {
@@ -69,36 +69,53 @@ public class Arquivo {
             throw new AssertionError("\n expected: " + o1 + "\n actual:   " + o2);
         }
     }
-	
-	public String salvarCadastro(HashMap<String, String> map, String arquivo){
+	*/
+	public String salvarCadastro(String arquivo, String conteudo){
 		
-		//FileWriter arq;
+		FileWriter arq;
 		String msg = "Erro arq";
 		
 		try {
-			//arq = new FileWriter(arquivo,true);
-			//PrintWriter gravarArq = new PrintWriter(arq);
-		    //gravarArq.append(map);
-		    //gravarArq.close();
+				
+			arq = new FileWriter(arquivo,true);
+			PrintWriter gravarArq = new PrintWriter(arq);
+		    gravarArq.write(conteudo);
+		    gravarArq.close();
+		    msg = "salvo com sucesso !";
+		
 			//FileOutputStream foo = new FileOutputStream(arquivo);
 			//ObjectOutputStream oos = new ObjectOutputStream(foo);
 			//oos.writeObject(map);
 			//oos.close();
 			
-			File arq = new File(arquivo);
-			write(arq, map);
-			
-		    msg = "Produto cadastrado com sucesso!!!";
+			//File arq = new File(arquivo);
+			//write(arq, map);
+		    
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
-			e.printStackTrace();
 		}
 		
 		return msg;
 		
 	}
 	
-	
+	public boolean verificarArquivoJaExistente(String arquivo) {
+		
+		boolean existe = false;
+		
+		try {
+			BufferedReader br = new BufferedReader(new FileReader(arquivo));
+			br.close(); 
+			existe = true;
+		} catch (FileNotFoundException e) {
+		} catch (IOException e){
+		} catch (NullPointerException e){
+		}
+		
+		return existe;
+		
+	}
+
 	private static HashMap<String, String> lerCadastro(String arquivo){
 		
 		HashMap<String, String> hM = new HashMap<String, String>();
@@ -136,17 +153,24 @@ public class Arquivo {
 		
 	}
 	
-	
+	// TESTE DO ERRO NULL POINTER EXCEPTION
 	public static void main(String[] args) {
-		HashMap<String, String> hM = new HashMap<String, String>();
-		hM = lerCadastro("Produto.txt");
-		System.out.println("OI");
-		System.out.println(hM);
-		System.out.println(hM.get(0));
-		System.out.println(hM.get(1));
-		System.out.println(hM.get(2));
-		System.out.println(hM.get(3));
-		System.out.println(hM.get(4));
+		
+		Arquivo arquivo = new Arquivo();
+		Venda venda = new Venda();
+		
+		boolean var = arquivo.verificarArquivoJaExistente("12345678909" + "_" + "123456" + ".txt");
+		System.out.println(var);
+		String cpf = "";
+		// ERRO AQUI 
+		try{
+		cpf = venda.entrarComCpfVendedor();
+		//****
+		} catch (NullPointerException e){
+			System.out.println("erro");
+		}
+		System.out.println(cpf);
+		
 		
 	}
 	
