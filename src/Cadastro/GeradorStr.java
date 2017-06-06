@@ -52,8 +52,7 @@ public class GeradorStr {
 		
 		String lista = "";
 		
-		lista = produto.getCodBarras() + "-" 
-				+ produto.getNome() + "-" 
+		lista = produto.getNome() + "-" 
 				+ produto.getValorCusto() + "-" 
 				+ produto.getValorVenda() + "\n";
 		

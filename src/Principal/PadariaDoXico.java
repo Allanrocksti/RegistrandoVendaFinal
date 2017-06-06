@@ -1,3 +1,4 @@
+package Principal;
 
 import java.util.ArrayList;
 import java.util.Scanner;
@@ -80,7 +81,7 @@ public class PadariaDoXico {
 					String produto = "produto";
 					String cliente = "cliente";
 					// COLETAR VENDEDOR
-					retorno = arquivo.lerCadastro(produto);//RETORNA O ARRAYLIST COM OS VALORES DO ARQUIVO
+					//retorno = arquivo.lerCadastro(produto);//RETORNA O ARRAYLIST COM OS VALORES DO ARQUIVO
 					if(retorno == null){
 						System.out.println("Erro ao retonar o Array");//SE FOR NULL É POR QUE NÃO ENTROU EM NENHUM IF
 					}else{
@@ -118,20 +119,19 @@ public class PadariaDoXico {
 							case "1":
 							
 								strCadastro = cadastros.produto();
-								arquivo.salvarCadastro(strCadastro, "Produto.txt");			
+								System.out.println(strCadastro);
 								break;
 								
 							case "2":
 								
 								strCadastro = cadastros.cliente();
-								arquivo.salvarCadastro(strCadastro, "Cliente.txt");
+								//arquivo.salvarCadastro(strCadastro, "Cliente.txt");
 								break;
 								
 							case "3":
 								
 								strCadastro = cadastros.vendedor();
-								int type3 = 3;
-								arquivo.salvarCadastro(strCadastro, "Vendedor.txt");
+								//arquivo.salvarCadastro(strCadastro, "Vendedor.txt");
 								break;
 								
 							case "4":

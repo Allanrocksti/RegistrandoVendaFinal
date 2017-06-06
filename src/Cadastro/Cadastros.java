@@ -1,8 +1,10 @@
 package Cadastro;
 
+import java.util.HashMap;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
+import Principal.Arquivo;
 import Tratamentos.TratamentoCpf;
 import Tratamentos.TratamentoValor;
 
@@ -34,16 +36,17 @@ public class Cadastros {
 	 */
 	public String produto() {
 		
-		String msg = null;
-		
+		String msg = "";
 		TratamentoValor tratamento = new TratamentoValor();
+		HashMap<String, String> hM = new HashMap<String, String>();
+		Arquivo arquivo = new Arquivo();
 		
 		System.out.print("Código de barras: ");
 		String barras = scanner.nextLine();
 		
 		if(barras.length() != 13){
 			msg = "Códigos de barras inválido\n Por favor, ultilize um código do tipo EAN-13 !\n";
-		}else{
+		}else if(arquivo.verificarChaveIgual(barras, "Produto.txt") == false){
 
 			try {
 				
@@ -59,14 +62,12 @@ public class Cadastros {
 				msg = tratamento.verificarValores(valorCusto, valorVenda);
 				
 				if(msg == "ok"){
-					
-					// IF (JA EXISTE == FALSE)
-					
+						
 					Produto produto = new Produto(barras, nome, valorCusto, valorVenda);
 					msg = colecoes.addProduto(produto);
-					
-					// ELSE
-						// msg = "Já existe"
+					hM.put(barras, msg);
+					System.out.println(hM);
+					msg = arquivo.salvarCadastro(hM, "Produto.txt");
 					
 				}
 				
@@ -76,6 +77,8 @@ public class Cadastros {
 				msg = "Erro!";
 			}
 			
+		}else{
+			msg = "Produto Já cadastrado";
 		}
 
 		return msg;

@@ -1,3 +1,4 @@
+import java.util.InputMismatchException;
 import java.util.Scanner;
 import Tratamentos.TratamentoCpf;
 
@@ -40,6 +41,115 @@ public class Venda {
 		}
 		
 		return cpf;
+		
+	}
+	
+	// FALTA VERIFICAR SE ESTÁ CADASTRADO NO ARQUIVO
+	/**
+	 * Verifica se o CPF do vendedor é válido e se está cadastrado
+	 * @return cpf do vendedor corretamente
+	 */
+	public String entrarComCpfVendedor(){
+		
+		boolean cadastrado = false;
+		
+		while (cadastrado != false){
+			
+			String cpf = coletarCpf();
+			
+			// IF (TÁ CADASTRADO? == SIM)
+				//cadastrado = true;
+			// ELSE
+				// NAO CADASTRADO DIGITE DENOVO
+			
+		}
+		
+		return cpf;
+		
+	}
+	
+	// FALTA VERIFICAR SE ESTÁ CADASTRADO NO ARQUIVO
+	/**
+	 * Verifica se o CPF do CLIENTE é válido e se está cadastrado
+	 * @return cpf do CLIENTE corretamente
+	 */
+	public String entrarComCpfCliente(){
+			
+		boolean cadastrado = false;
+		
+		while (cadastrado != false){
+			
+			String cpf = coletarCpf();
+			
+			// IF (TÁ CADASTRADO? == SIM)
+				//cadastrado = true;
+			// ELSE
+				// NAO CADASTRADO DIGITE DENOVO
+			
+		}
+		
+		return cpf;
+		
+	}
+	
+	// FALTA VERIFICAR SE ESTÁ CADASTRADO NO ARQUIVO
+	/**
+	 * Verifica se o produto está cadastrado
+	 * @return barras do produto cadastrado
+	 */
+	public String coletarProduto(){
+		
+		leitor = new Scanner(System.in);
+		
+		String barras = "";
+		boolean cadastrado = false;
+		
+		while(cadastrado != false){
+			
+			System.out.println("Barras: ");
+			barras = leitor.nextLine();
+			
+			// IF (TÁ CADASTRADO? == SIM)
+				//cadastrado = true;
+			// ELSE
+				// NAO CADASTRADO DIGITE DENOVO
+			
+		}
+		
+		return barras;
+		
+	}
+	
+	/**
+	 * Coleta uma quantidade válida para atribuir aos produtos
+	 * @return quantidade de intens
+	 */
+	public int coletarQuantidade(){
+		
+		int qtd = 1;
+		boolean valido = false;
+		
+		leitor = new Scanner(System.in);
+		
+		while (valido != false) {
+
+			try {
+				
+				System.out.println("Quantidade: ");
+				qtd = leitor.nextInt();
+				
+				if(qtd <= 1000 && qtd > 0)
+					valido = true;
+				else
+					System.out.println("Digite uma quantidade entre 1 e 1000");
+				
+			} catch (InputMismatchException e) {
+				System.out.println("Digite um valor válido");
+			}
+			
+		}
+		
+		return qtd;
 		
 	}
 	

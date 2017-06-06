@@ -1,3 +1,4 @@
+package Principal;
 import java.util.HashMap;
 
 public class Compra {
