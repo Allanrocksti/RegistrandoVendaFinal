@@ -118,22 +118,20 @@ public class PadariaDoXico {
 							case "1":
 							
 								strCadastro = cadastros.produto();
-								int type = 1;
-								arquivo.salvarCadastro(strCadastro, type);			
+								arquivo.salvarCadastro(strCadastro, "Produto.txt");			
 								break;
 								
 							case "2":
 								
 								strCadastro = cadastros.cliente();
-								int type2 = 2;
-								arquivo.salvarCadastro(strCadastro, type2);
+								arquivo.salvarCadastro(strCadastro, "Cliente.txt");
 								break;
 								
 							case "3":
 								
 								strCadastro = cadastros.vendedor();
 								int type3 = 3;
-								arquivo.salvarCadastro(strCadastro, type3);
+								arquivo.salvarCadastro(strCadastro, "Vendedor.txt");
 								break;
 								
 							case "4":

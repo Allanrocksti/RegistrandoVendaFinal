@@ -11,9 +11,9 @@ public class Venda {
 
 	private static Scanner leitor;
 	
+	private int quantidade;
 	private float subTotal;
 	private float total;
-	private float desconto;
 
 	/**
 	 * Coleta e retorna um cpf válido
@@ -59,12 +59,12 @@ public class Venda {
 		this.total = total;
 	}
 
-	public float getDesconto() {
-		return desconto;
+	public int getQuantidade() {
+		return quantidade;
 	}
 
-	public void setDesconto(float desconto) {
-		this.desconto = desconto;
+	public void setQuantidade(int quantidade) {
+		this.quantidade = quantidade;
 	}
 	
 }

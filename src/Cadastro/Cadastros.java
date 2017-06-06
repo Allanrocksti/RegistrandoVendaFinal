@@ -34,7 +34,7 @@ public class Cadastros {
 	 */
 	public String produto() {
 		
-		String msg = "";
+		String msg = null;
 		
 		TratamentoValor tratamento = new TratamentoValor();
 		
@@ -46,8 +46,6 @@ public class Cadastros {
 		}else{
 
 			try {
-				
-				
 				
 				System.out.print("Nome do produto: ");
 				String nome = scanner.nextLine();
