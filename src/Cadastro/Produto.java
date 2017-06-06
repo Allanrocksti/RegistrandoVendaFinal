@@ -5,7 +5,7 @@ package Cadastro;
  * @author Allan Roque Barbosa da Silva - 1610013738
  *
  */
-
+ 
 public class Produto {
 
 	private String CodBarras;

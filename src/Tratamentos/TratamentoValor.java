@@ -8,7 +8,7 @@ package Tratamentos;
 
 public class TratamentoValor {
 
-	/**
+	/** 
 	 * Verifica se o valor passado é negativo
 	 * @param valor Valor real
 	 * @return true = negativo ou 0 false = positivo 

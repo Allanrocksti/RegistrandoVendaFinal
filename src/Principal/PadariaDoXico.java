@@ -1,6 +1,7 @@
 package Principal;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.Scanner;
 
 import Cadastro.Cadastros;
@@ -9,21 +10,22 @@ import Cadastro.Cadastros;
 /**
  * Classe da aplicação principal, onde abriga o main
  * @author Allan Roque Barbosa da Silva - 1610013738
- *
+ * 
  */
 
 //****************************************************************************************************
 //
-// GOOD NEWS
+// GOOD NEWS ALLAN,
 //
 // ESTA SALVANDO, PENA QUE A CADA UMA COISA SALVA GERA UM .TXT, MAS FUNCIONA
+//COMPRA SÓ FALTAS AS FUNÇÕES, O ARMAZENAMENTO TÁ FLUINDO NORMARU DESU
 //
 //*****************************************************************************************************
 // ERROS DURANTE TESTES PARA SER CORRIGIDOS
 // 
 // * VERIFICAR PQ O CPF 646.846.284-34 É INVÁLIDO
 // * LIMPAR BUFFER DOS CADASTROS
-// * ERRO DE NULL POINTER EXCEPTION NA CLASSE ARQUIVO, VENDA
+// * ERRO DE NULL POINTER EXCEPTION NA CLASSE ARQUIVO, VENDA//ERRATA - JÁ RESOLVI
 // PF ALUIZIO, RESOLVE ESSES BUGS E PODE IR ADIANTANDO O RESTO
 //
 //*****************************************************************************************************
@@ -61,9 +63,10 @@ public class PadariaDoXico {
 	private static Scanner scanner;
 
 	public static void main(String[] args) {
-		
+		Extra extra = new Extra();
 		Arquivo arquivo = new Arquivo();
 		Cadastros cadastros = new Cadastros();
+		Compra compra = new Compra();
 		scanner = new Scanner(System.in);
 		boolean exitMenu = false;
 		String option = "0";
@@ -74,17 +77,33 @@ public class PadariaDoXico {
 			option = scanner.nextLine();
 			
 			switch (option) {
-			
+				//VENDA
 				case "1":
 					
 					Venda venda = new Venda();
+					HashMap<String, Integer> carrinho = new HashMap<String, Integer>();
 					
+					// solução para nenhum cliente e vendedor cadastrado
 					String cpfVendedor = venda.entrarComCpfVendedor();
 					String cpfCliente = venda.entrarComCpfCliente();
 					
-					cpfVendedor = cpfCliente;
-					cpfCliente = cpfVendedor;
-					//while()
+					boolean exit = true;
+					
+					while(exit != false){
+						
+						int qtd = venda.coletarQuantidade();
+						
+						if (qtd == 0 && carrinho.isEmpty() != true){
+							compra.compra(carrinho, cpfVendedor, cpfCliente);
+							break;
+						}else if(qtd == 0 && carrinho.isEmpty() == true){
+							System.out.println("Impossivel fechar compra sem produtos...");
+						}
+							
+						String barra = venda.coletarProduto();
+						carrinho.put(barra, qtd);
+							
+					}
 				
 					
 					break;

@@ -93,7 +93,9 @@ public class Extra {
 	            Character caractere = valor.charAt(i);
 	            if (!Character.isDigit(caractere)) {
 	                //É String
-	                valido = false;
+
+	                valido = false; 
+
 	            }
 	        }
         }catch (Exception e) {

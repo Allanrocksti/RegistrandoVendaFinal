@@ -8,12 +8,12 @@ import Tratamentos.TratamentoCpf;
  * Classe com todas as funções e o funcionamento da venda 
  * @author Allan Roque Barbosa da Silva - 1610013738
  *
- */
+ */ 
 
 public class Venda {
 
 	private static Scanner leitor;
-	private static Arquivo arquivo;
+	Arquivo arquivo = new Arquivo();
 	
 	private int quantidade;
 	private float subTotal;
@@ -47,13 +47,11 @@ public class Venda {
 		
 	}
 	
-	private String coletarSenha() {
+	private String coletarSenha(String pessoa) {
 		
-		String senha = "";
-		leitor = new Scanner(System.in);
 		
-		System.out.print("Senha: ");
-		senha = leitor.nextLine();
+		System.out.print("Digite a senha do " + pessoa + " : ");
+		String senha = leitor.nextLine();
 		
 		return senha;
 	}
@@ -67,13 +65,17 @@ public class Venda {
 		
 		boolean cadastrado = false;
 		String cpf = "";
+		String senha = "";
 		
 		while (cadastrado != true){
 			
 			cpf = coletarCpf("Vendedor");
-			String senha = coletarSenha();
+			senha = coletarSenha("Vendedor");
 			
-			cadastrado = arquivo.verificarArquivoJaExistente(cpf + "_" + senha + ".txt");
+			String str = cpf + "_" + senha + ".txt";
+			
+			cadastrado = arquivo.verificarArquivoJaExistente(str);
+				// TODO: handle exception
 			
 			if(cadastrado == false)
 				System.out.println("Vendedor não cadastrado!");
@@ -94,7 +96,7 @@ public class Venda {
 		boolean cadastrado = false;
 		String cpf = "";
 		
-		while (cadastrado != false){
+		while (cadastrado != true){
 			
 			cpf = coletarCpf("Cliente");
 			
@@ -121,9 +123,9 @@ public class Venda {
 		String barras = "";
 		boolean cadastrado = false;
 		
-		while(cadastrado != false){
+		while(cadastrado != true){
 			
-			System.out.println("Barras: ");
+			System.out.println("Codigo de barra do produto: ");
 			barras = leitor.nextLine();
 			
 			cadastrado = arquivo.verificarArquivoJaExistente(barras + ".txt");
@@ -148,14 +150,14 @@ public class Venda {
 		
 		leitor = new Scanner(System.in);
 		
-		while (valido != false) {
+		while (valido != true) {
 
 			try {
 				
-				System.out.println("Quantidade: ");
+				System.out.println("Quantidade do Produto (0 para encerrar a venda): ");
 				qtd = leitor.nextInt();
 				
-				if(qtd <= 1000 && qtd > 0)
+				if(qtd > -1 && qtd <= 1000)
 					valido = true;
 				else
 					System.out.println("Digite uma quantidade entre 1 e 1000");
