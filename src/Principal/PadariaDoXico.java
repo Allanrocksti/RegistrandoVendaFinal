@@ -1,31 +1,34 @@
+package Principal;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.Scanner;
 
 import Cadastro.Cadastros;
 
+
 /**
  * Classe da aplicação principal, onde abriga o main
  * @author Allan Roque Barbosa da Silva - 1610013738
- *
+ * 
  */
 
-//*****************************************************************
-// ALUIZIO, TEMOS QUE SALVAR OS DADOS DO CADASTRO PARA PODER CONTINUAR
-// PENSEI NO SEGUINTE, SALVAMOS EM .TXT COM ARREYLIST
-// FIZ TUDO QUE SE PODE FAZER SEM TOCAR NO ARQUIVO
-// IA COMEÇAR A IMPLEMENTAR O SAVE, MAS TÁ TARDE E VOU DORMIR
-// VAMOS DIVIDIR EM 4 ARQUIVOS:
+//****************************************************************************************************
 //
-//     CLIENTE.TXT
-//     VENDEDOR.TXT
-//     PRODUTOS.TXT
-//     VENDAS.TXT
+// GOOD NEWS
 //
-// O VENDAS.TXT SERÁ O UNICO EM QUE NÃO PRECISA DE MANIPULAÇÃO DOS ARQUIVOS
-// É SÓ DA UM ADD E SALVAR, POIS A GENTE NÃO VAI PRECISAR PEGAR OS ARQUIVOS
-// É SÓ SALVAR NAQUELE ESTILO
+// ESTA SALVANDO, PENA QUE A CADA UMA COISA SALVA GERA UM .TXT, MAS FUNCIONA
+//
+//*****************************************************************************************************
+// ERROS DURANTE TESTES PARA SER CORRIGIDOS
 // 
+// * VERIFICAR PQ O CPF 646.846.284-34 É INVÁLIDO
+// * LIMPAR BUFFER DOS CADASTROS
+// * ERRO DE NULL POINTER EXCEPTION NA CLASSE ARQUIVO, VENDA
+// PF ALUIZIO, RESOLVE ESSES BUGS E PODE IR ADIANTANDO O RESTO
+//
+//*****************************************************************************************************
+
 // ##################################################################
 //
 // 5:55 - 05/06/2017 - VENDA 1 - VENDEDORX - CPFX - ENDERX
@@ -61,8 +64,8 @@ public class PadariaDoXico {
 	public static void main(String[] args) {
 		
 		Arquivo arquivo = new Arquivo();
-		ArrayList<String> retorno = new ArrayList<String>();
 		Cadastros cadastros = new Cadastros();
+		Compra compra = new Compra();
 		scanner = new Scanner(System.in);
 		boolean exitMenu = false;
 		String option = "0";
@@ -75,31 +78,30 @@ public class PadariaDoXico {
 			switch (option) {
 			
 				case "1":
-					//VOU PASSAR O TIPO DO ARQUIVO QUE EU QUERO, PARA CADA MOMENTO DA EXECUÇÃO, ATRAVES DO LER CADASTRO
-					String vendedor = "vendedor";
-					String produto = "produto";
-					String cliente = "cliente";
-					// COLETAR VENDEDOR
-					retorno = arquivo.lerCadastro(produto);//RETORNA O ARRAYLIST COM OS VALORES DO ARQUIVO
-					if(retorno == null){
-						System.out.println("Erro ao retonar o Array");//SE FOR NULL É POR QUE NÃO ENTROU EM NENHUM IF
-					}else{
-						for (String string : retorno) {//PRINTO CADA STRING DENTRO DA MINHA COLEÇÃO
-							if(string != null)			//PODE COMPARAR O PRODUTO AQUI E PEGAR AS INFORMAÇÕES.
-								System.out.println(string);
-						}
-						// VERIFICAR CADASTRO
-						
-						// WHILE CONTINUAR == TRUE
-							
-							// COLETAR CLIENTE
-							// VERIFICAR CADASTRO
-					}
 					
-						// CALCULAR VENDA
-						// SALVAR VENDA
-						// IMPRIMIR
-						// CONTINUAR?
+					Venda venda = new Venda();
+					HashMap<String, Integer> carrinho = new HashMap<String, Integer>();
+					
+					String cpfVendedor = venda.entrarComCpfVendedor();
+					String cpfCliente = venda.entrarComCpfCliente();
+					
+					cpfVendedor = cpfCliente;
+					cpfCliente = cpfVendedor;
+					//while()
+					boolean exit = true;
+					while(exit!=false){
+						String barra = venda.coletarProduto();
+						int qtd = venda.coletarQuantidade();
+						carrinho.put(barra, qtd);
+						
+						System.out.println("Deseja adicionar novos produtos na venda? [1] - Sim [2] - Não");
+						int opcao = Integer.parseInt(scanner.nextLine());
+						if(opcao == 2){
+							compra.compra(carrinho, cpfVendedor, cpfCliente);
+							exit = false;
+						}
+					}
+				
 					
 					break;
 					
@@ -111,29 +113,29 @@ public class PadariaDoXico {
 						
 						Telas.menuCadastro();
 						option = scanner.nextLine();
-						String strCadastro;
+						String strCadastro = "";
 						
 						switch (option) {
 						
 							case "1":
-							
+									
 								strCadastro = cadastros.produto();
-								int type = 1;
-								arquivo.salvarCadastro(strCadastro, type);			
+								System.out.println(strCadastro);
+								
 								break;
 								
 							case "2":
-								
+							
 								strCadastro = cadastros.cliente();
-								int type2 = 2;
-								arquivo.salvarCadastro(strCadastro, type2);
+								System.out.println(strCadastro);
+							
 								break;
 								
 							case "3":
 								
 								strCadastro = cadastros.vendedor();
-								int type3 = 3;
-								arquivo.salvarCadastro(strCadastro, type3);
+								System.out.println(strCadastro);
+															
 								break;
 								
 							case "4":

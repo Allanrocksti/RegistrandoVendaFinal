@@ -1,5 +1,5 @@
 package Cadastro;
-
+ 
 /**
  * Classe contendo os dados dos vendedores
  * @author Allan Roque Barbosa da Silva - 1610013738

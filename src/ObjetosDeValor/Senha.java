@@ -19,7 +19,7 @@ public class Senha {
 		if (Senha == criptografar(senha))
 			resposta = true;
 
-		return resposta;
+		return resposta; 
 		
 	}
 }

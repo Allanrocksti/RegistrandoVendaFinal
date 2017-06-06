@@ -5,7 +5,7 @@ package Cadastro;
  * @author Allan Roque Barbosa da Silva - 1610013738
  *
  */
-
+ 
 public class GeradorStr {
 	
 	/**
@@ -17,8 +17,7 @@ public class GeradorStr {
 		
 		String lista = "";
 		
-		lista = pessoa.getCpf() + "-"
-				+ pessoa.getNome() + "-"
+		lista = pessoa.getNome() + "\n"
 				+ pessoa.getEndereco() + "\n";
 		
 		return lista;
@@ -34,9 +33,7 @@ public class GeradorStr {
 		
 		String lista = "";
 		
-		lista = vendedor.getCpf() + "-"
-				+ vendedor.getSenha() + "-"
-				+ vendedor.getNome() + "-"
+		lista = vendedor.getNome() + "\n"
 				+ vendedor.getEndereco() + "\n";
 		
 		return lista;
@@ -52,9 +49,8 @@ public class GeradorStr {
 		
 		String lista = "";
 		
-		lista = produto.getCodBarras() + "-" 
-				+ produto.getNome() + "-" 
-				+ produto.getValorCusto() + "-" 
+		lista = produto.getNome() + "\n" 
+				+ produto.getValorCusto() + "\n" 
 				+ produto.getValorVenda() + "\n";
 		
 		return lista;

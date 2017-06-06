@@ -1,3 +1,4 @@
+package Principal;
 /**
  *@date 3 de jun de 2017
  *@author  Neto
@@ -92,7 +93,7 @@ public class Extra {
 	            Character caractere = valor.charAt(i);
 	            if (!Character.isDigit(caractere)) {
 	                //É String
-	                valido = false;
+	                valido = false; 
 	            }
 	        }
         }catch (Exception e) {
