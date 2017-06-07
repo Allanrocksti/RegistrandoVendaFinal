@@ -21,7 +21,7 @@ public class TratamentoCpf {
 		int indiceStr;
 		int somatorio = 0;
 		
-		for (int i = 0; i<9; i++) {              
+		for (int i = 0; i < 9; i++) {              
         	
 			indiceStr = (int)(cpf.charAt(i) - 48); // charAt retorna o indice da string
         	
