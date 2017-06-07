@@ -23,7 +23,7 @@ import Cadastro.Cadastros;
 // * LIMPAR BUFFER DOS CADASTROS
 // * IMPLEMENTAR A TELA DE VENDA
 //
-// TESTAR ALOPRADAMENTE PARA ACHAR ERROS
+// TESTAR ALOPRADAMENTE PARA ACHAR ERROS !
 //
 //*****************************************************************************************************
 
