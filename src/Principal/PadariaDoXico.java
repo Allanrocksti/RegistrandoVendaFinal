@@ -9,21 +9,29 @@ import Cadastro.Cadastros;
 /**
  * Classe da aplicação principal, onde abriga o main
  * @author Allan Roque Barbosa da Silva - 1610013738
+ * 		   Aluizio Barbosa Maciel Neto - 1610015465
  * 
  */
 
 //****************************************************************************************************
+//JA RESOLVI O BUGZINHO DO CADASTRO DE VENDA, COISINHA BESTA, O PROBLEMA DE SAIR DO LOOP INFINITO SE
+//NÃO EXISTIR NENHUM CLIENTE OU VENDEDOR JÁ FOI SANADO, O PROBLEMA QUE ENCONTREI NA HORA DA VENDA AINDA TÁ. 
 //
-// GOOD NEWS ALUIZIO
+//****************************************************************************************************
+//
+//Dear Allan,
 //
 //*****************************************************************************************************
-// ERROS DURANTE TESTES PARA SER CORRIGIDOS
+//PLEASE, USER THIS PLACE FROM YOU TO COMMUNICATE WHAT NEED TO FINISH THE PROJECT:
 // 
-// * VERIFICAR PQ O CPF 646.846.284-34 É INVÁLIDO
-// * LIMPAR BUFFER DOS CADASTROS
-// * IMPLEMENTAR A TELA DE VENDA
-//
-// TESTAR ALOPRADAMENTE PARA ACHAR ERROS !
+// * VERIFICAR PQ O CPF 646.846.284-34 É INVÁLIDO//ainda persiste
+// * LIMPAR BUFFER DOS CADASTROS//aparentemente solucionado
+// * IMPLEMENTAR A TELA DE VENDA//ESPECIFIQUE
+/*THIS PLACE
+ *
+ * 
+ */
+// TESTAR ALOPRADAMENTE PARA ACHAR ERROS !//OBVIAMENTE
 //
 //*****************************************************************************************************
 
