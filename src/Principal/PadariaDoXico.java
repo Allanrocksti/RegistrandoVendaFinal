@@ -58,44 +58,60 @@ public class PadariaDoXico {
 					
 					Venda venda = new Venda();
 					HashMap<Integer, String> produtos = new HashMap<Integer, String>();
+					HashMap<Integer, Integer> quantidade = new HashMap<Integer, Integer>(); 
 					HashMap<Integer, Float> valores = new HashMap<Integer, Float>();
 					
 					// solução para nenhum cliente e vendedor cadastrado
 					String cpfVendedor = venda.entrarComCpfVendedor();
 					if(cpfVendedor == "Vendedor não cadastrado"){
 						System.out.println("\n*=====================================================");
-						System.out.println(cpfVendedor+", Cadastre e depois tente novamente!");
-						System.out.println("\n*=====================================================\n");
+						System.out.println("Credenciais do Vendedor incorretas, cadastre-as e logue novamente");
+						System.out.println("*=====================================================\n");
 						break;
 					}
 					
 					String cpfCliente = venda.entrarComCpfCliente();
 					if(cpfCliente == "Cliente não cadastrado"){
 						System.out.println("\n*=====================================================");
-						System.out.println(cpfCliente+", Cadastre e depois tente novamente!");
+						System.out.println("Credenciais do Cliente incorretas, cadastre-as e logue novamente");
 						System.out.println("*=====================================================\n");
 						break;
 					}
 					
 					boolean exit = true;
 					int indice = 0;
+					float valorTotal = 0;
+					String telaVenda = "\n*=====================================================\n\n" 
+										+ "Quantidade | Produto                      | Valor\n";
 					
 					while(exit != false){
 						
 						int qtd = venda.coletarQuantidade();
 						
 						if (qtd == 0 && produtos.isEmpty() != true){
-							compra.compra(produtos, valores, cpfVendedor, cpfCliente);
+							compra.compra(produtos, valores, quantidade, cpfVendedor, cpfCliente);
 							break;
 						}else if(qtd == 0 && produtos.isEmpty() == true){
 							System.out.println("Impossivel fechar compra sem produtos...");
 						}
 							
+						
 						String barra = venda.coletarProduto();
 						String nomeProduto = venda.nomeProduto(barra);
-						produtos.put(indice, nomeProduto);
 						float valor = compra.coletarValor(barra);
+						
+						quantidade.put(indice, qtd);
+						produtos.put(indice, nomeProduto);
 						valores.put(indice, valor);
+						
+						valorTotal = compra.calcularValorTotal(quantidade, valores);
+						
+						telaVenda += quantidade.get(indice) + " - " + produtos.get(indice) + "             " 
+								+ (quantidade.get(indice) * valores.get(indice)) + "\n";
+						
+						System.out.println(telaVenda);
+						System.out.printf("\nTotal: %.2f \n\n", valorTotal);
+						
 						indice++;
 							
 					}
@@ -133,6 +149,7 @@ public class PadariaDoXico {
 								
 								strCadastro = cadastros.vendedor();
 								System.out.println(strCadastro);
+								
 								break;
 								
 							case "4":

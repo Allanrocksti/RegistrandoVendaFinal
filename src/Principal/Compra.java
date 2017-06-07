@@ -1,5 +1,6 @@
 package Principal;
 import java.util.HashMap;
+
 import java.io.BufferedReader;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
@@ -30,35 +31,35 @@ public class Compra {
 			str = nome + "\nEndereço: " + endereco;
 			
 		} catch (FileNotFoundException e) {
-			// TODO: handle exception
+			
 		} catch (IOException e) {
-			// TODO: handle exception
+			
 		} catch (Exception e) {
-			// TODO: handle exception
+			
 		}
 		
 		return str;
 		
 	}
  
-	private static String stringProdutos(HashMap<Integer, String> produtos, HashMap<Integer, Float> valores){
+	private static String stringProdutos(HashMap<Integer, String> produtos, HashMap<Integer, Integer> quantidade, HashMap<Integer, Float> valores){
 		
 		String str = "";
 		
 		for(int i = 0; i < produtos.size(); i++)
-			str += produtos.get(i) + "      ------      R$ " + valores.get(i) + "\n";
+			str += quantidade.get(i) + "-" + produtos.get(i) + "      ------      R$ " + (quantidade.get(i) * valores.get(i)) + "\n";
 		
 		return str;
 		
 	}
 	
-	private static String totalCompra(HashMap<Integer, Float> valores){
+	private static String totalCompra(HashMap<Integer, Float> valores, HashMap<Integer, Integer> quantidade){
 		
 		String str = "";
 		float total = 0;
 		
 		for(int i = 0; i < valores.size(); i++)
-			total += valores.get(i);
+			total += quantidade.get(i) * valores.get(i);
 		
 		str = Float.toString(total);
 		
@@ -91,17 +92,19 @@ public class Compra {
 			valor = Float.parseFloat(valorStr);
 			
 		} catch (FileNotFoundException e) {
-			// TODO: handle exception
+
 		} catch (IOException e) {
-			// TODO: handle exception
+
 		} catch (Exception e) {
-			// TODO: handle exception
+
 		}
 		
 		return valor;
 		
 	}
-	public String compra(HashMap<Integer, String> produtos, HashMap<Integer, Float> valores,String vendedor, String cliente){
+	
+	public String compra(HashMap<Integer, String> produtos, HashMap<Integer, Float> valores, HashMap<Integer, Integer> quantidade,String vendedor, String cliente){
+		
 		String msg = "";
 		
 		FileWriter arq;
@@ -117,8 +120,8 @@ public class Compra {
 			String conteudo = "\n\n###################################\n\nData da compra: " + dStr
 							+ "\n\nVendedor: " + stringPessoa(vendedor) 
 							+ "\n\nCliente: " + stringPessoa(cliente)
-							+ "\n\n" + stringProdutos(produtos, valores) 
-							+ "\n\nTotal: R$" + totalCompra(valores)
+							+ "\n\n" + stringProdutos(produtos, quantidade, valores) 
+							+ "\n\nTotal: R$" + totalCompra(valores, quantidade)
 							+ "\n\n###################################";
 					
 		    
@@ -127,7 +130,7 @@ public class Compra {
 		    System.out.println("salvo com sucesso !");
 			    
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
+			
 		}	
 		
 		return msg;
@@ -138,6 +141,20 @@ public class Compra {
 		String str = stringPessoa("01785466402");
 		System.out.println(str);
 		
+	}
+
+	public float calcularValorTotal(HashMap<Integer, Integer> quantidade, HashMap<Integer, Float> valores) {
+		
+		float total = 0;
+		
+		for(int i = 0; i < quantidade.size(); i++){
+			
+			total += quantidade.get(i) * valores.get(i);
+			
+		}
+		
+		
+		return total;
 	}
 
 }

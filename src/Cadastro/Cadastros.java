@@ -47,9 +47,11 @@ public class Cadastros {
 				
 				System.out.print("Valor de custo: ");
 				float valorCusto = scanner.nextFloat();
+				scanner.nextLine();
 				
 				System.out.print("Valor de venda: ");
 				float valorVenda = scanner.nextFloat();
+				scanner.nextLine();
 
 				msg = tratamento.verificarValores(valorCusto, valorVenda);
 				
