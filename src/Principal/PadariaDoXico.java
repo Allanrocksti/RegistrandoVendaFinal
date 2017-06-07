@@ -54,7 +54,15 @@ public class PadariaDoXico {
 					
 					// solução para nenhum cliente e vendedor cadastrado
 					String cpfVendedor = venda.entrarComCpfVendedor();
+					if(cpfVendedor == "Vendedor não cadastrado!"){
+						System.out.println("Vendedor não cadastrado, o cadastre e tente de novo!!");
+						break;
+					}
 					String cpfCliente = venda.entrarComCpfCliente();
+					if(cpfCliente == "Cliente não cadastrado!"){
+						System.out.println("Cliente não cadastrado, o cadastre e tente novamente!!");
+						break;
+					}
 					
 					boolean exit = true;
 					int indice = 0;

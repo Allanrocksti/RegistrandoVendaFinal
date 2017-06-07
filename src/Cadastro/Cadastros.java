@@ -131,10 +131,11 @@ public class Cadastros {
 		System.out.print("Cpf: ");
 		String cpf = scanner.nextLine();
 		
-		System.out.print("Senha: ");
-		String senha = scanner.nextLine();
+		
 		
 		if(tratamentoCpf.cpfValido(cpf) == true){
+			System.out.print("Senha: ");
+			String senha = scanner.nextLine();
 		
 			if(arquivo.verificarArquivoJaExistente(cpf + "_" + senha + ".txt") == false){
 				

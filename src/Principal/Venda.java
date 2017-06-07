@@ -82,7 +82,7 @@ public class Venda {
 				// TODO: handle exception
 			
 			if(cadastrado == false)
-				System.out.println("Vendedor não cadastrado!");
+				return "As informações não conferem!";
 			
 		}
 		
@@ -107,7 +107,7 @@ public class Venda {
 			cadastrado = arquivo.verificarArquivoJaExistente(cpf + ".txt");
 			
 			if(cadastrado == false)
-				System.out.println("Cliente não cadastrado!");
+				return "As informações não conferem!";
 			
 		}
 		
