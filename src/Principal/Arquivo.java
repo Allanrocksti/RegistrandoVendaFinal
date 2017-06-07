@@ -8,6 +8,8 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
 
+import Tratamentos.CadastroNaoExisteException;
+
 
 /**
  *@date 1 de jun de 2017
@@ -21,6 +23,7 @@ import java.io.PrintWriter;
  */
 public class Arquivo {
 
+	
 	public String salvarCadastro(String arquivo, String conteudo){
 		
 		FileWriter arq;

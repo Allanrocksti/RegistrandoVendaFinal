@@ -4,6 +4,7 @@ import java.util.HashMap;
 import java.util.Scanner;
 
 import Cadastro.Cadastros;
+import Tratamentos.CadastroNaoExisteException;
 
 
 /**
@@ -54,20 +55,37 @@ public class PadariaDoXico {
 					
 					// solução para nenhum cliente e vendedor cadastrado
 					String cpfVendedor = venda.entrarComCpfVendedor();
-					if(cpfVendedor == "Vendedor não cadastrado"){
+					if(cpfVendedor == "Vendedor não cadastrado")
+						try {
+							throw new CadastroNaoExisteException("Vendedor não encontrado",1);
+						} catch (CadastroNaoExisteException e) {
+							// TODO Auto-generated catch block
+							System.out.println("\nCredenciais do Vendedor incorretas, cadastre-o e logue novamente\n");
+							break;
+						}
+					/*if(cpfVendedor == "Vendedor não cadastrado"){
 						System.out.println("\n*=====================================================");
 						System.out.println("Credenciais do Vendedor incorretas, cadastre-as e logue novamente");
 						System.out.println("*=====================================================\n");
 						break;
-					}
+					}*/
 					
 					String cpfCliente = venda.entrarComCpfCliente();
-					if(cpfCliente == "Cliente não cadastrado"){
-						System.out.println("\n*=====================================================");
+					if(cpfCliente == "Cliente não cadastrado")
+						try {
+							throw new CadastroNaoExisteException("Cliente não encontrado",2);
+						} catch (CadastroNaoExisteException e) {
+							// TODO Auto-generated catch block
+							System.out.println("\nCredenciais do Cliente incorretas, cadastre-o e logue novamente\n");
+							break;
+						}
+						
+						
+						/*System.out.println("\n*=====================================================");
 						System.out.println("Credenciais do Cliente incorretas, cadastre-as e logue novamente");
 						System.out.println("*=====================================================\n");
 						break;
-					}
+					*/
 					
 					boolean exit = true;
 					int indice = 0;
