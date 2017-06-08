@@ -11,9 +11,8 @@ package Tratamentos;
  */
 public class CadastroNaoExisteException extends Exception {
 
+	private static final long serialVersionUID = 1L;
 	private int codigo;
-
-	
 
 	public CadastroNaoExisteException(String message, int codigo) {
 		super(message);

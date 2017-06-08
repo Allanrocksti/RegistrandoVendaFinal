@@ -9,7 +9,7 @@ package Cadastro;
 public class GeradorStr {
 	
 	/**
-	 * Gera uma string com os dados do cliente em serie ex: " ****-***-***-***\n "
+	 * Gera uma string com os dados do cliente em serie ex: " ****\n***\n***\n***\n "
 	 * @param pessoa Cliente
 	 * @return A string com dados em série
 	 */
@@ -25,7 +25,7 @@ public class GeradorStr {
 	}
 	
 	/**
-	 * Gera uma string com os dados do Vendedor em serie ex: " ****-***-***-***\n "
+	 * Gera uma string com os dados do Vendedor em serie ex: " ****\n***\n***\n***\n "
 	 * @param vendedor
 	 * @return A string com dados em série
 	 */
@@ -41,7 +41,7 @@ public class GeradorStr {
 	}
 	
 	/**
-	 * Gera uma string com os dados do Vendedor em serie ex: " ****-***-***-***\n "
+	 * Gera uma string com os dados do Vendedor em serie ex: " ****\n***\n***\n***\n "
 	 * @param produto
 	 * @return A string com dados em série
 	 */
@@ -57,16 +57,4 @@ public class GeradorStr {
 		
 	}
 
-	// MAIN PARA TESTE
-	/*
-	public static void main(String[] args) {
-		
-		Cadastros cadastro = new Cadastros();
-		
-		String msg = cadastro.cliente();
-		
-		System.out.println(msg);
-		
-	}
-	*/
 }

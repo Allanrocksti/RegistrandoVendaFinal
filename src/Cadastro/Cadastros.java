@@ -4,6 +4,8 @@ import java.util.InputMismatchException;
 import java.util.Scanner;
 
 import Principal.Arquivo;
+import Principal.Compra;
+import Tratamentos.TratamentoBarras;
 import Tratamentos.TratamentoCpf;
 import Tratamentos.TratamentoValor;
 
@@ -33,23 +35,27 @@ public class Cadastros {
 		TratamentoValor tratamento = new TratamentoValor();
 		arquivo = new Arquivo();
 		
-		System.out.print("Código de barras: ");
+		System.out.print("\nCÓDIGO DE BARRAS: ");
 		String barras = scanner.nextLine();
 		
-		if(barras.length() != 13){
-			msg = "Códigos de barras inválido\n Por favor, ultilize um código do tipo EAN-13 !\n";
+		if(barras.length() != 13 || TratamentoBarras.verificarCaracteresInvalidos(barras) == true){
+			msg = "\nCÓDIGO DE BARRAS INVÁLIDO\nPOR FAVOR, ULTILIZE UM CÓDIGO DO TIPO EAN-13 !\n";
 		}else if(arquivo.verificarArquivoJaExistente(barras + ".txt") == false){
 
 			try {
 				
-				System.out.print("Nome do produto: ");
+				System.out.print("NOME DO PRODUTO: ");
 				String nome = scanner.nextLine();
 				
-				System.out.print("Valor de custo: ");
+				nome = Compra.encurtarNome(nome, 52);
+				
+				nome = nome.toUpperCase();
+				
+				System.out.print("VALOR DE CUSTO: ");
 				float valorCusto = scanner.nextFloat();
 				scanner.nextLine();
 				
-				System.out.print("Valor de venda: ");
+				System.out.print("VALOR DE VENDA: ");
 				float valorVenda = scanner.nextFloat();
 				scanner.nextLine();
 
@@ -65,13 +71,13 @@ public class Cadastros {
 				}
 				
 			} catch (InputMismatchException e) {
-				msg = "Digite um valor correto e não ultilize \".\" , ultilize \",\" ";
+				msg = "DIGITE UM VALOR CORRETO E NÃO UTILIZE \".\" , UTILIZE \",\" ";
 			} catch (Exception e){
-				msg = "Erro!";
+				msg = "OCORREU UM ERROR, TENTE NOVAMENTE !";
 			}
 			
 		}else{
-			msg = "Produto Já cadastrado";
+			msg = "PRODUTO JÁ CADASTRADO";
 		}
 
 		return msg;
@@ -89,18 +95,20 @@ public class Cadastros {
 		
 		String msg = "";
 		
-		System.out.print("Cpf: ");
+		System.out.print("\nCPF DO CLIENTE: ");
 		String cpf = scanner.nextLine();
 		
 		if(tratamentoCpf.cpfValido(cpf) == true){
 			
 			if(arquivo.verificarArquivoJaExistente(cpf + ".txt") == false){
 				
-				System.out.print("Nome: ");
+				System.out.print("NOME DO CLIENTE: ");
 				String nome = scanner.nextLine();
+				nome = nome.toUpperCase();
 				
-				System.out.print("Endereço: ");
+				System.out.print("ENDEREÇO DO CLIENTE: ");
 				String endereco = scanner.nextLine();
+				endereco = endereco.toUpperCase();
 				
 				Pessoa cliente = new Pessoa(nome, endereco, cpf);
 				msg = colecoes.addCliente(cliente);
@@ -108,11 +116,11 @@ public class Cadastros {
 				msg = "Cliente " + msg;
 				
 			}else{
-				msg = "Cliente já cadastrado !";
+				msg = "CLIENTE JÁ CADASTRADO !";
 			}
 			
 		}else{
-			msg = "Cpf incorreto!";
+			msg = "CPF INCORRETO !";
 		}
 		
 		return msg;
@@ -130,22 +138,22 @@ public class Cadastros {
 		
 		String msg =  "";
 		
-		System.out.print("Cpf: ");
+		System.out.print("\nCPF DO VENDEDOR: ");
 		String cpf = scanner.nextLine();
-		
-		
-		
+
 		if(tratamentoCpf.cpfValido(cpf) == true){
-			System.out.print("Senha: ");
+			System.out.print("SENHA DO VENDEDOR: ");
 			String senha = scanner.nextLine();
 		
 			if(arquivo.verificarArquivoJaExistente(cpf + "_" + senha + ".txt") == false){
 				
-				System.out.print("Nome: ");
+				System.out.print("NOME DO VENDEDOR: ");
 				String nome = scanner.nextLine();
+				nome = nome.toUpperCase();
 				
-				System.out.print("Endereço: ");
+				System.out.print("ENDEREÇO DO VENDEDOR: ");
 				String endereco = scanner.nextLine();
+				endereco = endereco.toUpperCase();
 				
 				Vendedor vendedor = new Vendedor(nome, endereco, cpf, senha);
 				msg = colecoes.addVendedor(vendedor);
@@ -154,11 +162,11 @@ public class Cadastros {
 				
 				
 			}else{
-				msg = "Vendedor já Cadastrado";
+				msg = "VENDEDOR JÁ CADASTRADO !";
 			}
 			
 		}else{
-			msg = "Cpf incorreto!";
+			msg = "CPF INCORRETO !";
 		}
 		
 		return msg;

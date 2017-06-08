@@ -6,6 +6,7 @@ import java.io.IOException;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
+import Tratamentos.TratamentoBarras;
 import Tratamentos.TratamentoCpf;
 
 /**
@@ -37,13 +38,13 @@ public class Venda {
 
 		while(valido != true){
 		
-			System.out.print("Digite o CPF do " + pessoa + " : ");
+			System.out.print("\nDIGITE O CPF DO " + pessoa + " : ");
 			cpf = leitor.nextLine();
 			
 			if(tCpf.cpfValido(cpf) == true)
 				valido = true;
 			else
-				System.out.println("Cpf inválido, try again !");
+				System.out.println("CPF INVÁLIDO, TENTE NOVAMENTE !");
 				
 		}
 		
@@ -51,19 +52,23 @@ public class Venda {
 		
 	}
 	
+	/**
+	 * Coleta a senha
+	 * @param pessoa 
+	 * @return String da senha
+	 */
 	private String coletarSenha(String pessoa) {
 		
 		
-		System.out.print("Digite a senha do " + pessoa + " : ");
+		System.out.print("DIGITE A SENHA DO " + pessoa + " : ");
 		String senha = leitor.nextLine();
 		
 		return senha;
 	}
 	
-	// FALTA VERIFICAR SE ESTÁ CADASTRADO NO ARQUIVO
 	/**
 	 * Verifica se o CPF do vendedor é válido e se está cadastrado
-	 * @return cpf do vendedor corretamente
+	 * @return O nome do arquivo salvo
 	 */
 	public String entrarComCpfVendedor(){
 		
@@ -73,16 +78,15 @@ public class Venda {
 		
 		while (cadastrado != true){
 			
-			cpf = coletarCpf("Vendedor");
-			senha = coletarSenha("Vendedor");
+			cpf = coletarCpf("VENDEDOR");
+			senha = coletarSenha("VENDEDOR");
 			
 			String str = cpf + "_" + senha + ".txt";
 			
 			cadastrado = arquivo.verificarArquivoJaExistente(str);
-				// TODO: handle exception
 			
 			if(cadastrado == false)
-				return "Vendedor não cadastrado";
+				return "vendedor não cadastrado";
 			
 		}
 		
@@ -90,10 +94,9 @@ public class Venda {
 		
 	}
 
-	// FALTA VERIFICAR SE ESTÁ CADASTRADO NO ARQUIVO
 	/**
 	 * Verifica se o CPF do CLIENTE é válido e se está cadastrado
-	 * @return cpf do CLIENTE corretamente
+	 * @return O cpf do cliente valido
 	 */
 	public String entrarComCpfCliente(){
 			
@@ -102,7 +105,7 @@ public class Venda {
 		
 		while (cadastrado != true){
 			
-			cpf = coletarCpf("Cliente");
+			cpf = coletarCpf("CLIENTE");
 			
 			cadastrado = arquivo.verificarArquivoJaExistente(cpf + ".txt");
 			
@@ -115,7 +118,6 @@ public class Venda {
 		
 	}
 	
-	// FALTA VERIFICAR SE ESTÁ CADASTRADO NO ARQUIVO
 	/**
 	 * Verifica se o produto está cadastrado
 	 * @return barras do produto cadastrado
@@ -129,13 +131,18 @@ public class Venda {
 		
 		while(cadastrado != true){
 			
-			System.out.println("Codigo de barra do produto: ");
+			System.out.print("BARRAS: ");
 			barras = leitor.nextLine();
 			
-			cadastrado = arquivo.verificarArquivoJaExistente(barras + ".txt");
-			
-			if(cadastrado == false)
-				System.out.println("Produto não cadastrado!");
+			if(barras.length() == 13 && TratamentoBarras.verificarCaracteresInvalidos(barras) == false){
+				cadastrado = arquivo.verificarArquivoJaExistente(barras + ".txt");
+				
+				if(cadastrado == false)
+					System.out.println("PRODUTO NÃO CADASTRADO!");
+				
+			}else{
+				System.out.println("\nCÓDIGO DE BARRAS INVÁLIDO\nPOR FAVOR, ULTILIZE UM CÓDIGO DO TIPO EAN-13 !\n");
+			}
 			
 		}
 		
@@ -143,6 +150,11 @@ public class Venda {
 		
 	}
 	
+	/**
+	 * Coleta o nome do produto a partir do cod barras
+	 * @param barra
+	 * @return nome do produto
+	 */
 	public String nomeProduto(String barra){
 		
 		String str = "";
@@ -158,11 +170,11 @@ public class Venda {
 			fr.close();
 			
 		} catch (FileNotFoundException e) {
-			// TODO: handle exception
+		
 		} catch (IOException e) {
-			// TODO: handle exception
+		
 		} catch (Exception e) {
-			// TODO: handle exception
+		
 		}
 		
 		return str;
@@ -171,7 +183,7 @@ public class Venda {
 	
 	/**
 	 * Coleta uma quantidade válida para atribuir aos produtos
-	 * @return quantidade de intens
+	 * @return quantidade de itens
 	 */
 	public int coletarQuantidade(){
 		
@@ -184,16 +196,17 @@ public class Venda {
 
 			try {
 				
-				System.out.print("Quantidade do Produto (0 para encerrar a venda): ");
+				System.out.print("\nQUANTIDADE (0 PARA ENCERRAR A VENDA): ");
 				qtd = leitor.nextInt();
 				
-				if(qtd > -1 && qtd <= 1000)
+				if(qtd > -1 && qtd <= 100)
 					valido = true;
 				else
-					System.out.println("Digite uma quantidade entre 1 e 1000");
+					System.out.println("\nDIGITE UMA QUANTIDADE ENTRE 1 E 100 !");
 				
 			} catch (InputMismatchException e) {
-				System.out.println("Digite um valor válido");
+				System.out.println("\nDIGITE UM VALOR VÁLIDO !");
+				leitor.nextLine();
 			}
 			
 		}

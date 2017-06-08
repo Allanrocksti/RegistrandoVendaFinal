@@ -8,8 +8,6 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
 
-import Tratamentos.CadastroNaoExisteException;
-
 
 /**
  *@date 1 de jun de 2017
@@ -18,16 +16,22 @@ import Tratamentos.CadastroNaoExisteException;
  */
 
 /**
- * @author Aluízio Barbosa Maciel Neto
+ *@author Allan Roque Barbosa da Silva - 1610013738
+ * 		   Aluizio Barbosa Maciel Neto - 1610015465
  *
  */
 public class Arquivo {
 
-	
+	/**
+	 * Metodo para salvar o cadastro 
+	 * @param arquivo String com nome do arquivo
+	 * @param conteudo O que será salvo
+	 * @return Mensagem de status
+	 */
 	public String salvarCadastro(String arquivo, String conteudo){
 		
 		FileWriter arq;
-		String msg = "Erro arq";
+		String msg;
 		
 		try {
 				
@@ -35,40 +39,24 @@ public class Arquivo {
 			PrintWriter gravarArq = new PrintWriter(arq);
 		    gravarArq.write(conteudo);
 		    gravarArq.close();
-		    msg = "salvo com sucesso !";
+		    msg = "SALVO COM SUCESSO !";
 
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
+			msg = "ERRO AO SALVAR O ARQUIVO";
 		}
 		
 		return msg;
 		
 	}
-	
-	// TESTE DO ERRO NULL POINTER EXCEPTION
-	public static void main(String[] args) {
-		
-		Arquivo arquivo = new Arquivo();
-		Venda venda = new Venda();
-		
-		boolean var = arquivo.verificarArquivoJaExistente("12345678909" + "_" + "123456" + ".txt");
-		System.out.println(var);
-		String cpf = "";
-		// ERRO AQUI 
-		try{
-		cpf = venda.entrarComCpfVendedor();
-		//****
-		} catch (NullPointerException e){
-			System.out.println("erro");
-		}
-		System.out.println(cpf);
-		
-		
-	}
-		
+
+	/**
+	 * Faz um teste se o arquivo existe
+	 * @param arquivo String com nome do arquivo
+	 * @return Mensagem de status
+	 */
 	public boolean verificarArquivoJaExistente(String arquivo) {
 		
-		boolean existe = false;
+		boolean existe;
 		
 		try {
 			FileReader fr = new FileReader(arquivo);
@@ -77,11 +65,11 @@ public class Arquivo {
 			fr.close();
 			existe = true;
 		} catch (FileNotFoundException e) {
-			return existe;
+			existe = false;
 		} catch (IOException e){
-			return existe;
+			existe = false;
 		} catch (NullPointerException e){
-			return existe;
+			existe = false;
 		}
 		
 		return existe;

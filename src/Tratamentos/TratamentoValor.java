@@ -46,6 +46,24 @@ public class TratamentoValor {
 	}
 	
 	/**
+	 * Verifica se o valor ultrapassa os 9999 reais
+	 * @param valorVenda
+	 * @return true = se sim false = se não
+	 */
+	private boolean verificarValorMaximo(float valorVenda) {
+		
+		boolean valor;
+		
+		if (valorVenda < 10000)
+			valor = false;
+		else
+			valor = true;
+			
+		return valor;
+		
+	}
+	
+	/**
 	 * Faz todas as verificações para possiveis erros com os valores
 	 * @param valorCusto
 	 * @param valorVenda
@@ -59,10 +77,16 @@ public class TratamentoValor {
 			
 			if(verificarNegativo(valorVenda) == false){
 				
-				if (verificarValorMenor(valorCusto, valorVenda)) 
-					msg = "ok";
-				else
+				if (verificarValorMenor(valorCusto, valorVenda) == true){
+					
+					if (verificarValorMaximo(valorVenda) == false)
+						msg = "ok";
+					else
+						msg = "Não seja ganancioso, defina um valor abaixo de R$ 10000,00 ";
+	
+				}else{
 					msg = "Valor de Venda não pode ser menor ou igual ao valor de custo !\n";
+				}
 				
 			}else{
 				msg = "Valor de Venda não podem ser negativos ou igual a 0 !\n";

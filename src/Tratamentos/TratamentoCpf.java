@@ -3,7 +3,7 @@ package Tratamentos;
 import java.util.InputMismatchException;
 
 /**
- * Classe para verificar se o CPF é válido e para a impressão personalizada " ***.***.***-** "
+ * Classe para verificar se o CPF é válido
  * @author Allan Roque Barbosa da Silva - 1610013738
  *
  */ 
@@ -97,19 +97,5 @@ public class TratamentoCpf {
 		    }
 		    
 	}
-	
-	/**
-	 * Método para impressão de CPF formatado com "." e "-"
-	 * @param cpf String do CPF
-	 * @return Retorna a String CPF formatada 
-	 */
-	public String imprimeCpf(String cpf) {
-	    
-		return(cpf.substring(0, 3) 
-	    		+ "." + cpf.substring(3, 6) 
-	    		+ "." + cpf.substring(6, 9) 
-	    		+ "-" + cpf.substring(9, 11));
-		
-	 }
 	
 }

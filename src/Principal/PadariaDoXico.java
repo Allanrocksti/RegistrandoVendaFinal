@@ -22,8 +22,10 @@ import Tratamentos.CadastroNaoExisteException;
 //PLEASE, USER THIS PLACE FROM YOU TO COMMUNICATE WHAT NEED TO FINISH THE PROJECT:
 // 
 // * VERIFICAR PQ O CPF 646.846.284-34 É INVÁLIDO//ainda persiste
-// * IMPLEMENTAR A TELA DE VENDA//ESPECIFIQUE
-// TESTAR ALOPRADAMENTE PARA ACHAR ERROS !//OBVIAMENTE
+// * ENCONTRAR UMA SOLUÇÃO PARA OS PROBLEMAS (BUGUIS)
+// 		* DA PARA CADASTRAR 2 VENDEDORES COM CPFS IGUAIS MUDANDO A SENHA
+//
+// * TESTAR ALOPRADAMENTE PARA ACHAR ERROS !//OBVIAMENTE
 //
 //*****************************************************************************************************
 
@@ -45,53 +47,43 @@ public class PadariaDoXico {
 			option = scanner.nextLine();
 			
 			switch (option) {
-				//VENDA
+				
 				case "1":
+					
+					Telas.limpaTela();
 					
 					Venda venda = new Venda();
 					HashMap<Integer, String> produtos = new HashMap<Integer, String>();
 					HashMap<Integer, Integer> quantidade = new HashMap<Integer, Integer>(); 
 					HashMap<Integer, Float> valores = new HashMap<Integer, Float>();
 					
-					// solução para nenhum cliente e vendedor cadastrado
 					String cpfVendedor = venda.entrarComCpfVendedor();
-					if(cpfVendedor == "Vendedor não cadastrado")
+					
+					if(cpfVendedor == "vendedor não cadastrado")
 						try {
 							throw new CadastroNaoExisteException("Vendedor não encontrado",1);
 						} catch (CadastroNaoExisteException e) {
 							// TODO Auto-generated catch block
-							System.out.println("\nCredenciais do Vendedor incorretas, cadastre-o e logue novamente\n");
+							System.out.println("\nCREDENCIAIS DO VENDEDOR INCORRETAS, CADASTRE-O E LOGUE NOVAMENTE\n");
 							break;
 						}
-					/*if(cpfVendedor == "Vendedor não cadastrado"){
-						System.out.println("\n*=====================================================");
-						System.out.println("Credenciais do Vendedor incorretas, cadastre-as e logue novamente");
-						System.out.println("*=====================================================\n");
-						break;
-					}*/
 					
 					String cpfCliente = venda.entrarComCpfCliente();
+					
 					if(cpfCliente == "Cliente não cadastrado")
 						try {
 							throw new CadastroNaoExisteException("Cliente não encontrado",2);
 						} catch (CadastroNaoExisteException e) {
 							// TODO Auto-generated catch block
-							System.out.println("\nCredenciais do Cliente incorretas, cadastre-o e logue novamente\n");
+							System.out.println("\nCREDENCIAIS DO VENDEDOR INCORRETAS, CADASTRE-O E LOGUE NOVAMENTE\n");
 							break;
 						}
-						
-						
-						/*System.out.println("\n*=====================================================");
-						System.out.println("Credenciais do Cliente incorretas, cadastre-as e logue novamente");
-						System.out.println("*=====================================================\n");
-						break;
-					*/
 					
 					boolean exit = true;
 					int indice = 0;
 					float valorTotal = 0;
-					String telaVenda = "\n*=====================================================\n\n" 
-										+ "Quantidade | Produto                      | Valor\n";
+					
+					String telaVenda = Telas.telaVenda();
 					
 					while(exit != false){
 						
@@ -101,7 +93,8 @@ public class PadariaDoXico {
 							compra.compra(produtos, valores, quantidade, cpfVendedor, cpfCliente);
 							break;
 						}else if(qtd == 0 && produtos.isEmpty() == true){
-							System.out.println("Impossivel fechar compra sem produtos...");
+							System.out.println("\nCOMPRA CANCELADA!");
+							break;
 						}
 							
 						
@@ -115,11 +108,11 @@ public class PadariaDoXico {
 						
 						valorTotal = compra.calcularValorTotal(quantidade, valores);
 						
-						telaVenda += quantidade.get(indice) + " - " + produtos.get(indice) + "             " 
-								+ (quantidade.get(indice) * valores.get(indice)) + "\n";
+						telaVenda += Telas.linhaProdutos(produtos, quantidade, valores, indice);
 						
+						Telas.limpaTela();
 						System.out.println(telaVenda);
-						System.out.printf("\nTotal: %.2f \n\n", valorTotal);
+						System.out.printf("\nTOTAL: %.2f \n\n", valorTotal);
 						
 						indice++;
 							
@@ -134,6 +127,8 @@ public class PadariaDoXico {
 					
 					while(exitCadastro != true){
 						
+						Telas.limpaTela();
+						
 						Telas.menuCadastro();
 						option = scanner.nextLine();
 						String strCadastro = "";
@@ -141,7 +136,9 @@ public class PadariaDoXico {
 						switch (option) {
 						
 							case "1":
-									
+								
+								Telas.limpaTela();
+								
 								strCadastro = cadastros.produto();
 								System.out.println(strCadastro);
 								
@@ -149,12 +146,16 @@ public class PadariaDoXico {
 								
 							case "2":
 							
+								Telas.limpaTela();
+								
 								strCadastro = cadastros.cliente();
 								System.out.println(strCadastro);
 							
 								break;
 								
 							case "3":
+								
+								Telas.limpaTela();
 								
 								strCadastro = cadastros.vendedor();
 								System.out.println(strCadastro);
@@ -163,12 +164,15 @@ public class PadariaDoXico {
 								
 							case "4":
 								
+								Telas.limpaTela();
+								
 								exitCadastro = true;
 								
 								break;
 		
 							default:
 								
+								Telas.limpaTela();
 								Telas.msgError();
 								
 								break;	
