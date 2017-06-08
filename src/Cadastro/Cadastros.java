@@ -24,6 +24,7 @@ public class Cadastros {
 	private static Scanner scanner = new Scanner(System.in);
 	private static GeradorStr colecoes = new GeradorStr();
 	private static Arquivo arquivo = new Arquivo();
+	private Scanner leitor;
 	
 	/**
 	 * Realiza o cadastro do produto
@@ -51,15 +52,22 @@ public class Cadastros {
 				
 				nome = nome.toUpperCase();
 				
-				System.out.print("VALOR DE CUSTO: ");
-				float valorCusto = scanner.nextFloat();
-				scanner.nextLine();
+				float valorCusto;
+				float valorVenda;
 				
-				System.out.print("VALOR DE VENDA: ");
-				float valorVenda = scanner.nextFloat();
-				scanner.nextLine();
-
-				msg = tratamento.verificarValores(valorCusto, valorVenda);
+				while (true) {
+					
+					valorCusto = nextFloat("CUSTO");
+					valorVenda = nextFloat("VENDA");
+					
+					msg = tratamento.verificarValores(valorCusto, valorVenda);
+					
+					if(msg != "ok")
+						System.out.println(msg);
+					else
+						break;
+					
+				}
 				
 				if(msg == "ok"){
 						
@@ -71,9 +79,9 @@ public class Cadastros {
 				}
 				
 			} catch (InputMismatchException e) {
-				msg = "DIGITE UM VALOR CORRETO E NÃO UTILIZE \".\" , UTILIZE \",\" ";
+				msg = "\nDIGITE UM VALOR CORRETO E NÃO UTILIZE \".\" , UTILIZE \",\" ";
 			} catch (Exception e){
-				msg = "OCORREU UM ERROR, TENTE NOVAMENTE !";
+				msg = "\nDIGITE UM VALOR CORRETO E NÃO UTILIZE \".\" , UTILIZE \",\"";
 			}
 			
 		}else{
@@ -83,7 +91,40 @@ public class Cadastros {
 		return msg;
 		
 	}
-	
+
+	/**
+	 * Função para coletar valor sem ocorrer erro de buffer
+	 * @param str nome do valor
+	 * @return valor
+	 */
+	private float nextFloat(String str) {
+		
+		float num;
+		String aux;
+		leitor = new Scanner(System.in);
+		
+		while(true){
+		
+			try {
+				
+				System.out.print("\nDIGITE O VALOR DE " + str + ": ");
+				aux = leitor.nextLine();
+				num = Float.parseFloat(aux);
+				break;
+				
+			} catch (InputMismatchException e) {
+				System.out.println("\nDIGITE UM VALOR CORRETO E NÃO UTILIZE \".\" , UTILIZE \",\" ");
+			} catch (Exception e){
+				System.out.println("\nDIGITE UM VALOR CORRETO E NÃO UTILIZE \".\" , UTILIZE \",\" ");
+			}
+
+			
+		}
+		
+		return num;
+		
+	}
+
 	/**
 	 * Realiza o cadastro do cliente
 	 * @return Uma string com os dados em série para salvar no arquivo
