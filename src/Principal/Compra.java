@@ -8,6 +8,7 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.text.DateFormat;
+import java.text.Format;
 import java.util.Date;
 
 
@@ -47,6 +48,10 @@ public class Compra {
 		String str = "";
 		
 		for(int i = 0; i < produtos.size(); i++)
+		
+			
+			
+			
 			str += quantidade.get(i) + "-" + produtos.get(i) + "      ------      R$ " + (quantidade.get(i) * valores.get(i)) + "\n";
 		
 		return str;
