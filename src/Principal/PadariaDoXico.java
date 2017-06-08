@@ -21,9 +21,6 @@ import Tratamentos.CadastroNaoExisteException;
 //PLEASE, USER THIS PLACE FROM YOU TO COMMUNICATE WHAT NEED TO FINISH THE PROJECT:
 // **************************************************************************************************
 // * VERIFICAR PQ O CPF 646.846.284-34 É INVÁLIDO//ainda persiste
-// * ENCONTRAR UMA SOLUÇÃO PARA OS PROBLEMAS (BUGUIS)
-// 		* DA PARA CADASTRAR 2 VENDEDORES COM CPFS IGUAIS MUDANDO A SENHA
-// * POR FAVOR, AJEITA SÓ OS LIMPA TELA QUE ESTÃO NAS POSIÇOES ERRADAS
 //
 // * TESTAR ALOPRADAMENTE PARA ACHAR ERROS !//OBVIAMENTE
 //
@@ -126,8 +123,6 @@ public class PadariaDoXico {
 					boolean exitCadastro = false;
 					
 					while(exitCadastro != true){
-						
-						Telas.limpaTela();
 						
 						Telas.menuCadastro();
 						option = scanner.nextLine();

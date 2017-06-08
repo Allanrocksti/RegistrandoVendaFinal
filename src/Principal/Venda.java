@@ -124,7 +124,7 @@ public class Venda {
 			
 		}
 		
-		return cpf + "_" + senha;
+		return cpf;
 		
 	}
 
