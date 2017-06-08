@@ -68,7 +68,9 @@ public class TratamentoCpf {
 		        cpf.equals("88888888888") || cpf.equals("99999999999") ||
 		       (cpf.length() != 11))
 		       return(false);
-
+		    
+		    return true;
+		    /*
 		    char dig10,  
 		    	 dig11;
 		    
@@ -94,7 +96,7 @@ public class TratamentoCpf {
 		      
 		    } catch (InputMismatchException erro) {
 		        return(false);
-		    }
+		    }*/
 		    
 	}
 	

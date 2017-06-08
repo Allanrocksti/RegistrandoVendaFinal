@@ -82,18 +82,18 @@ public class TratamentoValor {
 					if (verificarValorMaximo(valorVenda) == false)
 						msg = "ok";
 					else
-						msg = "Não seja ganancioso, defina um valor abaixo de R$ 10000,00 ";
+						msg = "\nNÃO SEJA GANANCIOSO, DEFINA UM VALOR ABAIXO DE R$ 10000,00 \n";
 	
 				}else{
-					msg = "Valor de Venda não pode ser menor ou igual ao valor de custo !\n";
+					msg = "\nVALOR DE VENDA NÃO PODE SER MENOR OU IGUAL AO VALOR DE CUSTO !\n";
 				}
 				
 			}else{
-				msg = "Valor de Venda não podem ser negativos ou igual a 0 !\n";
+				msg = "\nVALOR DE VENDA NÃO PODEM SER NEGATIVOS OU IGUAL A 0 !\n";
 			}
 			
 		}else{
-			msg = "Valor de custo não podem ser negativos ou igual a 0 !\n";
+			msg = "\nVALOR DE CUSTO NÃO PODEM SER NEGATIVOS OU IGUAL A 0 !\n";
 		}
 		
 		return msg;

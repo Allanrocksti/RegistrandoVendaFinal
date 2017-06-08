@@ -79,9 +79,9 @@ public class Cadastros {
 				}
 				
 			} catch (InputMismatchException e) {
-				msg = "\nDIGITE UM VALOR CORRETO E NÃO UTILIZE \".\" , UTILIZE \",\" ";
+				msg = "\nDIGITE UM VALOR CORRETO E NÃO UTILIZE \",\" , UTILIZE \".\" ";
 			} catch (Exception e){
-				msg = "\nDIGITE UM VALOR CORRETO E NÃO UTILIZE \".\" , UTILIZE \",\"";
+				msg = "\nDIGITE UM VALOR CORRETO E NÃO UTILIZE \",\" , UTILIZE \".\"";
 			}
 			
 		}else{
@@ -113,9 +113,9 @@ public class Cadastros {
 				break;
 				
 			} catch (InputMismatchException e) {
-				System.out.println("\nDIGITE UM VALOR CORRETO E NÃO UTILIZE \".\" , UTILIZE \",\" ");
+				System.out.println("\nDIGITE UM VALOR CORRETO E NÃO UTILIZE \",\" , UTILIZE \".\" ");
 			} catch (Exception e){
-				System.out.println("\nDIGITE UM VALOR CORRETO E NÃO UTILIZE \".\" , UTILIZE \",\" ");
+				System.out.println("\nDIGITE UM VALOR CORRETO E NÃO UTILIZE \",\" , UTILIZE \".\" ");
 			}
 
 			
