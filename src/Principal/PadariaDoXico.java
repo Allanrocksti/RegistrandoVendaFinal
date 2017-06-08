@@ -15,14 +15,9 @@ import Tratamentos.CadastroNaoExisteException;
  */
 
 //****************************************************************************************************
+// * O QUE FALTA PARA FINALIZAR O PROJETO?
 //
-//Dear Allan,
-//
-//PLEASE, USER THIS PLACE FROM YOU TO COMMUNICATE WHAT NEED TO FINISH THE PROJECT:
-// **************************************************************************************************
-// * VERIFICAR PQ O CPF 646.846.284-34 É INVÁLIDO//ainda persiste
-//
-// * TESTAR ALOPRADAMENTE PARA ACHAR ERROS !//OBVIAMENTE
+// * TESTAR ALOPRADAMENTE PARA ACHAR ERROS !
 //
 //*****************************************************************************************************
 
