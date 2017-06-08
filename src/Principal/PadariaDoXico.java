@@ -18,9 +18,8 @@ import Tratamentos.CadastroNaoExisteException;
 //
 //Dear Allan,
 //
-//*****************************************************************************************************
 //PLEASE, USER THIS PLACE FROM YOU TO COMMUNICATE WHAT NEED TO FINISH THE PROJECT:
-// 
+// **************************************************************************************************
 // * VERIFICAR PQ O CPF 646.846.284-34 É INVÁLIDO//ainda persiste
 // * ENCONTRAR UMA SOLUÇÃO PARA OS PROBLEMAS (BUGUIS)
 // 		* DA PARA CADASTRAR 2 VENDEDORES COM CPFS IGUAIS MUDANDO A SENHA
