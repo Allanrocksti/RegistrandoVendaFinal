@@ -107,7 +107,7 @@ public class Venda {
 			
 			cpf = coletarCpf("CLIENTE");
 			
-			cadastrado = arquivo.verificarArquivoJaExistente(cpf + ".txt");
+			cadastrado = arquivo.verificarArquivoJaExistente(cpf + "_cliente.txt");
 			
 			if(cadastrado == false)
 				return "Cliente não cadastrado";

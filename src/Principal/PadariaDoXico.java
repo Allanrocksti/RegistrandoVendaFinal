@@ -75,7 +75,7 @@ public class PadariaDoXico {
 							throw new CadastroNaoExisteException("Cliente não encontrado",2);
 						} catch (CadastroNaoExisteException e) {
 							// TODO Auto-generated catch block
-							System.out.println("\nCREDENCIAIS DO VENDEDOR INCORRETAS, CADASTRE-O E LOGUE NOVAMENTE\n");
+							System.out.println("\nCREDENCIAIS DO CLIENTE INCORRETAS, CADASTRE-O E LOGUE NOVAMENTE\n");
 							break;
 						}
 					

@@ -100,7 +100,7 @@ public class Cadastros {
 		
 		if(tratamentoCpf.cpfValido(cpf) == true){
 			
-			if(arquivo.verificarArquivoJaExistente(cpf + ".txt") == false){
+			if(arquivo.verificarArquivoJaExistente(cpf + "_cliente.txt") == false){
 				
 				System.out.print("NOME DO CLIENTE: ");
 				String nome = scanner.nextLine();
@@ -112,7 +112,7 @@ public class Cadastros {
 				
 				Pessoa cliente = new Pessoa(nome, endereco, cpf);
 				msg = colecoes.addCliente(cliente);
-				msg = arquivo.salvarCadastro(cpf + ".txt", msg);
+				msg = arquivo.salvarCadastro(cpf + "_cliente.txt", msg);
 				msg = "Cliente " + msg;
 				
 			}else{

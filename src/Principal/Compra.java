@@ -168,7 +168,7 @@ public class Compra {
 							+ "                                      PADARIA DO XICO                                     \n"
 							+ "##########################################################################################\n"
 							+ "\nVENDEDOR: " + stringPessoa(vendedor) 
-							+ "CLIENTE: " + stringPessoa(cliente)
+							+ "CLIENTE: " + stringPessoa(cliente + "_cliente")
 							+ "##########################################################################################\n"
 							+ "\n\n__________________________________________________________________________________________"
 							+ "\nQTD | DESCRIÇÃO                                            |  VALOR UN  |   VALOR TOTAL  |"
