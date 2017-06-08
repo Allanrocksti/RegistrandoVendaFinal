@@ -66,6 +66,38 @@ public class Venda {
 		return senha;
 	}
 	
+	private String pegarSenhaVendedor(String arquivo) {
+		
+		String str = "";
+		
+		try {
+			FileReader fr = new FileReader(arquivo);
+			BufferedReader br = new BufferedReader(fr);
+			
+			for (int i = 0; i < 2; i++) {
+				
+				br.readLine();
+				
+				if (i == 1)
+					str = br.readLine();
+				
+			}
+			
+			br.close();
+			fr.close();
+			
+		} catch (FileNotFoundException e) {
+			str = "";
+		} catch (IOException e){
+			str = "";
+		} catch (NullPointerException e){
+			str = "";
+		}
+		
+		
+		return str;
+	}
+	
 	/**
 	 * Verifica se o CPF do vendedor é válido e se está cadastrado
 	 * @return O nome do arquivo salvo
@@ -81,12 +113,14 @@ public class Venda {
 			cpf = coletarCpf("VENDEDOR");
 			senha = coletarSenha("VENDEDOR");
 			
-			String str = cpf + "_" + senha + ".txt";
+			String str = cpf + ".txt";
 			
 			cadastrado = arquivo.verificarArquivoJaExistente(str);
 			
-			if(cadastrado == false)
+			if(!(senha.equals(pegarSenhaVendedor(str))))
 				return "vendedor não cadastrado";
+			else if(cadastrado == false)
+					return "vendedor não cadastrado";
 			
 		}
 		

@@ -66,7 +66,7 @@ public class Cadastros {
 					Produto produto = new Produto(barras, nome, valorCusto, valorVenda);
 					msg = colecoes.addProduto(produto);
 					msg = arquivo.salvarCadastro(barras + ".txt", msg);
-					msg = "Produto " + msg;
+					msg = "PRODUTO " + msg;
 					
 				}
 				
@@ -113,7 +113,7 @@ public class Cadastros {
 				Pessoa cliente = new Pessoa(nome, endereco, cpf);
 				msg = colecoes.addCliente(cliente);
 				msg = arquivo.salvarCadastro(cpf + "_cliente.txt", msg);
-				msg = "Cliente " + msg;
+				msg = "CLIENTE " + msg;
 				
 			}else{
 				msg = "CLIENTE JÁ CADASTRADO !";
@@ -142,10 +142,11 @@ public class Cadastros {
 		String cpf = scanner.nextLine();
 
 		if(tratamentoCpf.cpfValido(cpf) == true){
-			System.out.print("SENHA DO VENDEDOR: ");
-			String senha = scanner.nextLine();
 		
-			if(arquivo.verificarArquivoJaExistente(cpf + "_" + senha + ".txt") == false){
+			if(arquivo.verificarArquivoJaExistente(cpf + ".txt") == false){
+				
+				System.out.print("SENHA DO VENDEDOR: ");
+				String senha = scanner.nextLine();
 				
 				System.out.print("NOME DO VENDEDOR: ");
 				String nome = scanner.nextLine();
@@ -157,8 +158,8 @@ public class Cadastros {
 				
 				Vendedor vendedor = new Vendedor(nome, endereco, cpf, senha);
 				msg = colecoes.addVendedor(vendedor);
-				msg = arquivo.salvarCadastro(cpf + "_" + senha + ".txt", msg);
-				msg = "Vendedor " + msg;
+				msg = arquivo.salvarCadastro(cpf + ".txt", msg);
+				msg = "VENDEDOR " + msg;
 				
 				
 			}else{

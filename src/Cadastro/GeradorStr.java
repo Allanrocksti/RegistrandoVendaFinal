@@ -34,7 +34,8 @@ public class GeradorStr {
 		String lista = "";
 		
 		lista = vendedor.getNome() + "\n"
-				+ vendedor.getEndereco() + "\n";
+				+ vendedor.getEndereco() + "\n"
+				+ vendedor.getSenha() + "\n";
 		
 		return lista;
 		
